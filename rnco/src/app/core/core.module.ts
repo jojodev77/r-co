@@ -15,11 +15,15 @@ import { ContactComponent } from './body/contact/contact.component';
 import { AgrementComponent } from './body/agrement/agrement.component';
 import { SimulateurService } from './body/services/simulateur.service';
 import { FriseTemporelComponent } from './body/frise-temporel/frise-temporel.component';
+import { FaqComponent } from './body/faq/faq.component';
+import { LivreOrComponent } from './body/livre-or/livre-or.component';
+import { RecommandationsComponent } from './body/recommandations/recommandations.component';
+import { CollaborateurComponent } from './body/collaborateur/collaborateur.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, HomeComponent, IdenditeComponent, AccueilComponent, PartenairesComponent, ProduitsComponent, ConfortComponent, ContactComponent, AgrementComponent, FriseTemporelComponent],
+  declarations: [HeaderComponent, FooterComponent, HomeComponent, IdenditeComponent, AccueilComponent, PartenairesComponent, ProduitsComponent, ConfortComponent, ContactComponent, AgrementComponent, FriseTemporelComponent, FaqComponent, LivreOrComponent, RecommandationsComponent, CollaborateurComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
