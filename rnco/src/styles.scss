@@ -36,3 +36,17 @@ button{
         padding: 15px;
     }
  }
+
+ h1, h3, span, p, section {
+     font-family: arial;
+ }
+
+ @font-face {
+    font-family: police1;
+    src: url("/assets/Vogue.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: titre1;
+    src: url("/assets/lyon_king.ttf") format("truetype");
+}

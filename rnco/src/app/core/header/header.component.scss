@@ -29,5 +29,15 @@
   .module{
     border: 0.5px solid #B8E4AE;
     background: #B8E4AE !important;
-    min-height: 100px;
+    min-height: 50px;
+  }
+
+  h2 {
+    font-family: titre1;
+  }
+
+  .title{
+    font-weight: bolder;
+    font-size: 21px;
+    letter-spacing: 0.1em;
   }
