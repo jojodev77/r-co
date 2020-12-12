@@ -1,0 +1,21 @@
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+
+  .produits{
+    &__description{
+      padding: 30px;
+      border: 1px solid black;
+
+      &__cpu{
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        font-weight: bolder;
+        padding: 15px;
+      }
+      &__cpuDef{
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+    }
+  }

@@ -1,0 +1,33 @@
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+
+  a:hover{
+    text-decoration: underline white;
+    color: red;
+    font-weight: bold;
+  }
+
+  .mat-toolbar.mat-primary {
+    background: #B8E4AE !important;
+    color: black !important;
+    min-height: 100px !important;
+
+}
+  
+  mat-sidenav-content{
+    background: linear-gradient(135deg, 12% #92FA92 , 88% #F7F9F9 ,);
+  }
+
+  .logo{
+    max-width: 250px;
+    max-height: 200px;
+    padding: 10px;
+    border-radius: 10%;
+  }
+
+  .module{
+    border: 0.5px solid #B8E4AE;
+    background: #B8E4AE !important;
+    min-height: 100px;
+  }

@@ -1,0 +1,25 @@
+.accueil {
+    &__presentation, &__agrement, &__calculateur {
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+    }
+    &__calculateur {
+
+        &__simulateur {
+            border: 1px solid black;
+            padding: 20px;
+        }
+    }
+
+}
+
+
+img {
+    max-width: 150px;
+    max-height: 160px;
+}
+
+.mat-form-field{
+    background-color: white;
+}

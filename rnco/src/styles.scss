@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: arial;
+    
+}
+
+button{
+    width: 150px;
+    border-radius: 40%;
+    background-color: dodgerblue;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px;
+    padding: 15px;
+
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    margin: 30px;
+    width: 160px;
+}
+
+@media (min-width: 900px) {
+    button{
+        width: 80px;
+        border-radius: 20px;
+        background-color: dodgerblue;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        margin: 40px;
+        padding: 15px;
+    }
+ }
