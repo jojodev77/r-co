@@ -47,3 +47,40 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     font-size: 21px;
     letter-spacing: 0.1em;
   }
+
+
+
+  .boutonmenuprincipal {
+    background-color: #e83737;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    }
+    .boutonmenuprincipal:hover {
+    background-color: #ff4444;
+    }
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+    .dropdown-child {
+    display: none;
+    margin-top: 10px;
+    cursor: pointer;
+    }
+    .dropdown-child a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    }
+    .dropdown-child a :hover {
+      text-decoration: underline white;
+    color: red;
+    font-weight: bold;
+      display: block;
+      }
+    .dropdown:hover .dropdown-child {
+    display: block;
+    }
