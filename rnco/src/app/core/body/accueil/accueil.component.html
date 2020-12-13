@@ -15,11 +15,11 @@
            
         </section>
 
-        <section class="accueil__agrement" fxLayout="column" fxLayoutAlign="center center">
+        <section class="accueil__agrement" fxLayout="column" fxLayoutAlign="space-around center">
            <h2>VOS SUBVENTIONS</h2>
            <h3>Nous éffectuons les démarches administratives pour vous </h3>
            <section fxLayout="column" fxLayoutAlign="center center">
-            <section fxLayout="row" fxLayoutAlign="center center">
+            <section fxLayout="row" fxLayoutAlign="space-around center">
               <img src="assets/sub/anah.jpg">
               <img src="assets/sub/ademe.png">
             </section>
@@ -38,27 +38,23 @@
                 <section fxLayout="column">
                   <span>Saisisez votre facture énergitique mensuelle:</span>
                   <mat-form-field class="example-form-field">
-                    <mat-label>Votre facture mensuelle</mat-label>
+            
                     <input matInput type="number" formControlName="sommePayerMensuellement">
                    
                   </mat-form-field>
-                  <span>Votre facture annuelle --{{coutAnnuelEnergitique}}€</span>
-                </section>
-                <section fxLayout="column">
-                  <span>Vos factures énergitique nos pompes à chaleurs: </span>
-                  <section fxLayout="row">
-                    <span>
-                      Pompe à chaleur Air-air -------{{coutPacAirAir}}€
-                    </span>
+                  <section fxLayout="column">
+                    <span>Votre facture annuelle</span>
+                    <h4>{{coutAnnuelEnergitique}}€</h4>
+                    <h3 class="info">Avec nos pompes à chaleurs: </h3>
+                    <span>Pompe à chaleur Air-air (mois / annuel)</span>
+                    <h4>{{coutPacAirAirMensuel}}€ / {{coutPacAirAirAnnuel}}€</h4>
+                    <span>Pompe à chaleur Air-eau (mois / annuel)</span>
+                    <h4>{{coutPacAirEauMensuel}}€ / {{coutPacAirEauAnnuel}}€</h4>
                   </section>
-                  <section fxLayout="row">
-                    <span>
-                      Pompe à chaleur Air-eau -------{{coutPacAirEau}}€
-                    </span>
-                  </section>
-                  <button (click)="calculSimulateur()">dge</button>
-                  <span>Vous attendez quoi?</span>
+                 
+                  
                 </section>
+             
             </section>
          
         </section>

@@ -17,20 +17,26 @@ export class AccueilComponent implements OnInit {
    simulateurForm: FormGroup;
    simulateurSubscription: Subscription;
    coutAnnuelEnergitique: number;
-   coutPacAirAir: Number;
-   coutPacAirEau: Number;
+   coutPacAirAirMensuel: Number;
+   coutPacAirAirAnnuel: Number;
+   coutPacAirEauMensuel: Number;
+   coutPacAirEauAnnuel: Number;
 
   ngOnInit() {
     this.simulateurForm = this.simulateurService.buildForm();
     this.coutAnnuelEnergitique = 0;
-    this.coutPacAirAir = 0;
-    this.coutPacAirEau = 0;
-    this.simulateurForm.get('sommePayerMensuellement').setValue(22)
+    this.coutPacAirAirMensuel = 0;
+    this.coutPacAirAirAnnuel = 0;
+    this.coutPacAirEauMensuel = 0;
+    this.coutPacAirEauAnnuel = 0;
+    this.simulateurForm.get('sommePayerMensuellement').setValue(0)
     this.simulateurForm.get('sommePayerMensuellement').valueChanges.subscribe(
         (data: any) => {
           this.coutAnnuelEnergitique = data * 12;
-          this.coutPacAirAir = data / 4;
-          this.coutPacAirEau = data / 3;
+          this.coutPacAirAirMensuel = data / 4;
+          this.coutPacAirAirAnnuel = data / 4 * 12;
+          this.coutPacAirEauMensuel = data / 3;
+          this.coutPacAirEauAnnuel = data / 3 * 12;
         }
     )
   }

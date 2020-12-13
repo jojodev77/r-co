@@ -9,7 +9,7 @@
   }
 
   a{
-    padding: 10px;
+    padding-left: 10px;
   }
 
   .mat-toolbar.mat-primary {
@@ -66,7 +66,7 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     }
     .dropdown-child {
     display: none;
-    margin-top: 10px;
+    margin-top: 50px;
     cursor: pointer;
     }
     .dropdown-child a {
@@ -83,4 +83,5 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
       }
     .dropdown:hover .dropdown-child {
     display: block;
+    color: red;
     }
