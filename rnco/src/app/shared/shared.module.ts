@@ -14,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -30,7 +31,8 @@ import {MatInputModule} from '@angular/material/input';
     IvyCarouselModule,
     NgbModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
     
   ],
   exports: [
@@ -45,7 +47,8 @@ import {MatInputModule} from '@angular/material/input';
     IvyCarouselModule,
     NgbModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
