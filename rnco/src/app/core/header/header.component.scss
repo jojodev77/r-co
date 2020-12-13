@@ -38,6 +38,13 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     min-height: 50px;
   }
 
+  h1{
+    font-weight: bolder;
+    letter-spacing: 0.2em;
+    font-size: 3.5vw;
+    padding: 5px;
+  }
+
   h2 {
     font-family: 'titre1';
   }
@@ -85,3 +92,10 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     display: block;
     color: red;
     }
+
+    .mat-h1, .mat-headline, .mat-typography, h1 {
+      /* font: 400 24px/32px Roboto, "Helvetica Neue", sans-serif; */
+      letter-spacing: normal !important;
+     
+      margin: 0 0 16px !important;
+  }
