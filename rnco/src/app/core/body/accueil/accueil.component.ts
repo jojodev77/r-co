@@ -21,6 +21,8 @@ export class AccueilComponent implements OnInit {
    coutPacAirAirAnnuel: Number;
    coutPacAirEauMensuel: Number;
    coutPacAirEauAnnuel: Number;
+   economieAnnuelAirAir: number;
+   economieAnnuelAirEau: number;
 
   ngOnInit() {
     this.simulateurForm = this.simulateurService.buildForm();
@@ -37,6 +39,8 @@ export class AccueilComponent implements OnInit {
           this.coutPacAirAirAnnuel = data / 4 * 12;
           this.coutPacAirEauMensuel = data / 3;
           this.coutPacAirEauAnnuel = data / 3 * 12;
+          this.economieAnnuelAirAir = this.coutAnnuelEnergitique +- this.coutPacAirAirAnnuel;
+          this.economieAnnuelAirEau = this.coutAnnuelEnergitique +- this.coutPacAirEauAnnuel;
         }
     )
   }

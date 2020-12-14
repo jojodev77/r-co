@@ -29,6 +29,8 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     max-height: 200px;
     padding: 10px;
     border-radius: 10%;
+    margin-top: 30px;
+    cursor: pointer;
   }
 
   .module{
@@ -41,8 +43,8 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
   h1{
     font-weight: bolder;
     letter-spacing: 0.2em;
-    font-size: 3.5vw;
-    padding: 5px;
+    font-size: 3.3vw;
+    padding: 10px;
   }
 
   h2 {
@@ -77,20 +79,19 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     cursor: pointer;
     }
     .dropdown-child a {
-    color: black;
     text-decoration: none;
     display: block;
     font-size: 14px;
     }
-    .dropdown-child a :hover {
+    .dropdown-child a :active {
       text-decoration: underline white;
-    color: red;
+    color: red !important;
     font-weight: bold;
       display: block;
       }
     .dropdown:hover .dropdown-child {
     display: block;
-    color: red;
+    color: red !important;
     }
 
     .mat-h1, .mat-headline, .mat-typography, h1 {

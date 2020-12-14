@@ -20,12 +20,12 @@
               <a  mat-button>QUI SOMME NOUS ? <mat-icon>keyboard_arrow_down</mat-icon></a>
               <div class="dropdown-child">
                 <a (click)="scrollTo('.identite')" mat-button>QUI SOMMES NOUS ? <mat-icon>person</mat-icon></a>
-                <a (click)="scrollTo('.identite')" mat-button>NOS RECOMMANDATIONS ? <mat-icon>how_to_reg</mat-icon></a>
-                <a (click)="scrollTo('.identite')" mat-button>NOS PARTENAIRES ? <mat-icon>person</mat-icon></a>
+                <a (click)="scrollTo('.recommandations')" mat-button>NOS RECOMMANDATIONS ? <mat-icon>how_to_reg</mat-icon></a>
+                <a (click)="scrollTo('.partenaires')" mat-button>NOS PARTENAIRES ? <mat-icon>person</mat-icon></a>
               </div>
               </div>
-          <a (click)="scrollTo('.contact')" mat-button>LIVRE D'OR <mat-icon> border_color</mat-icon></a>
-          <a (click)="scrollTo('.contact')" mat-button>FAQ <mat-icon>thumb_up_alt</mat-icon></a>
+          <a (click)="scrollTo('.livre')" mat-button>LIVRE D'OR <mat-icon> border_color</mat-icon></a>
+          <a (click)="scrollTo('.faq')" mat-button>FAQ <mat-icon>thumb_up_alt</mat-icon></a>
           <div class="dropdown">
             <a  mat-button>PRO <mat-icon>keyboard_arrow_down</mat-icon></a>
             <div class="dropdown-child">
@@ -75,11 +75,11 @@
           </section>
           <app-idendite fxLayoutAlign="center center" class="identite"></app-idendite>
           <section class="module">
-            <h1 fxLayoutAlign="center center">NOS RECOMMANDATIONS?</h1>
+            <h1 fxLayoutAlign="center center" class="recommandations">NOS RECOMMANDATIONS?</h1>
             </section>
           <app-agrement fxLayoutAlign="center center" ></app-agrement>
           <section class="module">
-            <h1 fxLayoutAlign="center center" class="partenaire">NOS PARTENAIRES?</h1>
+            <h1 fxLayoutAlign="center center" class="partenaires">NOS PARTENAIRES?</h1>
             </section>
           <app-contact fxLayoutAlign="center center" ></app-contact>
           <section class="module">
