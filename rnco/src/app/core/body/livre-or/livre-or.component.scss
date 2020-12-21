@@ -1,3 +1,18 @@
+form{
+  border: 1px solid black;
+  margin: 30px;
+  height: 220px;
+}
+
+mat-form-field{
+  padding: 20px;
+}
+
+span{
+  font-weight: bolder;
+  font-size: 16px;
+  text-decoration: underline;
+}
 
 ::before,
 ::after {
@@ -19,6 +34,7 @@ ul {
   padding: 0;
   list-style: none;
   text-align: center;
+  background-color: white;
 }
 
 a {
@@ -103,6 +119,7 @@ Table of Contents
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+  min-width: 400px;
 }
 
 /* reverse */
@@ -432,6 +449,9 @@ Table of Contents
   top: 1%;
   left: 3%;
   z-index: 10;
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
 }
 
 .page > li {
