@@ -1,3 +1,26 @@
+<section fxLayout="row">
+  <form [formGroup]="blogForm">
+    <section fxLayout="column">
+  <mat-form-field class="example-form-field">
+    <mat-label>Nom -- prénom -- pseudonyme</mat-label>
+    <input matInput type="text" formControlName="article">
+    <button mat-button *ngIf="blogForm.get('article').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field">
+    <mat-label>Votre commentaire</mat-label>
+    <input matInput type="text" formControlName="author">
+    <button mat-button *ngIf="blogForm.get('author').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button (click)="createComments()">Je commente</button>
+</section>
+</form>
+
 <div class="component">
     <ul class="align">
       <li>
@@ -15,16 +38,12 @@
           </ul>
 
           <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li>
-              <a class="btn" href="#">Download</a>
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
+          
+          <ul class='page' *ngFor="let comment of comments">
+            <li >Autheur: {{comment?.author}}</li>
+            <li class="btn">...{{comment?.article}}</li>
           </ul>
+          
 
           <!-- Back -->
 
@@ -44,3 +63,4 @@
       </li>
     </ul>
   </div>
+</section>

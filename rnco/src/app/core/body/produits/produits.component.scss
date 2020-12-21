@@ -3,6 +3,11 @@
   }
 
   .produits{
+    &__img{
+      max-width: 300px;
+      max-height: 280px;
+    }
+
     &__description{
       padding: 30px;
       border: 1px solid black;

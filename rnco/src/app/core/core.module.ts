@@ -19,6 +19,9 @@ import { FaqComponent } from './body/faq/faq.component';
 import { LivreOrComponent } from './body/livre-or/livre-or.component';
 import { RecommandationsComponent } from './body/recommandations/recommandations.component';
 import { CollaborateurComponent } from './body/collaborateur/collaborateur.component';
+import { CommentService } from '../team/services/comment.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -27,10 +30,14 @@ import { CollaborateurComponent } from './body/collaborateur/collaborateur.compo
   imports: [
     CommonModule,
     CoreRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
 
   ],
-  providers: [SimulateurService],
+  exports: [
+LivreOrComponent
+  ],
+  providers: [SimulateurService, CommentService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class CoreModule { }

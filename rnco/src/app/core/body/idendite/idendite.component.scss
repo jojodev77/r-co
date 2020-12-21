@@ -3,7 +3,7 @@
 *{box-sizing: border-box}
 
 
-img{max-width:100%}
+mat-card{max-width:100%}
 	
 	
 	
@@ -37,7 +37,7 @@ transition:1s
 	
 	}
 
-.caroussel img {
+.caroussel mat-card {
 	
 position:absolute;
 top:0;left:0;
@@ -47,15 +47,15 @@ transition:1s
 	
 	}
 
-.caroussel img{filter:blur(3px);opacity:.8}	
-.caroussel img:nth-child(1){transform:translate3d(0,0,540px) scale(.8)}
-.caroussel img:nth-child(2){transform:rotateY(45deg) translateZ(540px) scale(.8)}
-.caroussel img:nth-child(3){transform:rotateY(90deg) translateZ(540px) scale(.8)}
-.caroussel img:nth-child(4){transform:rotateY(135deg) translateZ(540px) scale(.8)}
-.caroussel img:nth-child(5){transform:rotateY(180deg) translateZ(540px) scale(.8)}
-.caroussel img:nth-child(6){transform:rotateY(225deg) translateZ(540px) scale(.8)}
-.caroussel img:nth-child(7){transform:rotateY(270deg) translateZ(540px) scale(.8)}
-.caroussel img:nth-child(8){transform:rotateY(315deg) translateZ(540px) scale(.8)}
+.caroussel mat-card{filter:blur(3px);opacity:.8}	
+.caroussel mat-card:nth-child(1){transform:translate3d(0,0,540px) scale(.8)}
+.caroussel mat-card:nth-child(2){transform:rotateY(45deg) translateZ(540px) scale(.8)}
+.caroussel mat-card:nth-child(3){transform:rotateY(90deg) translateZ(540px) scale(.8)}
+.caroussel mat-card:nth-child(4){transform:rotateY(135deg) translateZ(540px) scale(.8)}
+.caroussel mat-card:nth-child(5){transform:rotateY(180deg) translateZ(540px) scale(.8)}
+.caroussel mat-card:nth-child(6){transform:rotateY(225deg) translateZ(540px) scale(.8)}
+.caroussel mat-card:nth-child(7){transform:rotateY(270deg) translateZ(540px) scale(.8)}
+.caroussel mat-card:nth-child(8){transform:rotateY(315deg) translateZ(540px) scale(.8)}
 
 .caroussel_diapo input[type=radio] + label {
 	
@@ -76,7 +76,7 @@ margin: 10px;
 
 
 
-.caroussel_diapo input[name="rotation"]:checked ~ .contenu_carou .caroussel img:nth-child(n){
+.caroussel_diapo input[name="rotation"]:checked ~ .contenu_carou .caroussel mat-card:nth-child(n){
 	filter:drop-shadow(12px 12px 7px hsla(0,0%,0%,.5))
 	
 	}	
@@ -93,12 +93,25 @@ margin: 10px;
 
 
 /*droite*/
-.caroussel_diapo #carou_un:checked ~ .contenu_carou .caroussel img:nth-child(1){transform:translateZ(540px) scale(1);opacity:1}
-.caroussel_diapo #carou_deux:checked ~ .contenu_carou .caroussel img:nth-child(2){transform:rotateY(45deg) translateZ(540px) scale(1);opacity:1}
-.caroussel_diapo #carou_trois:checked ~ .contenu_carou .caroussel img:nth-child(3){transform:rotateY(90deg) translateZ(540px) scale(1);opacity:1}
-.caroussel_diapo #carou_quatre:checked ~ .contenu_carou .caroussel img:nth-child(4){transform:rotateY(135deg) translateZ(540px) scale(1);opacity:1}
-.caroussel_diapo #carou_cinq:checked ~ .contenu_carou .caroussel img:nth-child(5){transform:rotateY(180deg) translateZ(540px) scale(1);opacity:1}
-.caroussel_diapo #carou_six:checked ~ .contenu_carou .caroussel img:nth-child(6){transform:rotateY(225deg) translateZ(540px) scale(1);opacity:1}
-.caroussel_diapo #carou_sept:checked ~ .contenu_carou .caroussel img:nth-child(7){transform:rotateY(270deg) translateZ(540px) scale(1);opacity:1}
-.caroussel_diapo #carou_huit:checked ~ .contenu_carou .caroussel img:nth-child(8){transform:rotateY(315deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_un:checked ~ .contenu_carou .caroussel mat-card:nth-child(1){transform:translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_deux:checked ~ .contenu_carou .caroussel mat-card:nth-child(2){transform:rotateY(45deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_trois:checked ~ .contenu_carou .caroussel mat-card:nth-child(3){transform:rotateY(90deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_quatre:checked ~ .contenu_carou .caroussel mat-card:nth-child(4){transform:rotateY(135deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_cinq:checked ~ .contenu_carou .caroussel mat-card:nth-child(5){transform:rotateY(180deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_six:checked ~ .contenu_carou .caroussel mat-card:nth-child(6){transform:rotateY(225deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_sept:checked ~ .contenu_carou .caroussel mat-card:nth-child(7){transform:rotateY(270deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_huit:checked ~ .contenu_carou .caroussel mat-card:nth-child(8){transform:rotateY(315deg) translateZ(540px) scale(1);opacity:1}
 
+.mat-card-image {
+    /* width: calc(100% + 32px); */
+    width: 128px !important;
+    margin: 0 -16px 16px -16px;
+}
+
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 117px;
+}

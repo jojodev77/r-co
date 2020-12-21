@@ -6,7 +6,7 @@
         </button>
         <img src="assets/logo.PNG" class="logo" (click)="scrollTo('.accueil')" fxShow="true"  >
         <span class="menu-spacer"></span>
-        <div fxShow="true" fxHide.lt-md>
+        <div fxShow="true" fxHide.lt-md fxLayoutAlign="center center">
           <!-- The following menu items will be hidden on both SM and XS screen sizes -->
         
           <div class="dropdown">
@@ -29,7 +29,7 @@
           <div class="dropdown">
             <a  mat-button>PRO <mat-icon>keyboard_arrow_down</mat-icon></a>
             <div class="dropdown-child">
-              <a (click)="scrollTo('.identite')" mat-button>COLLABORATEURS <mat-icon>meeting_room</mat-icon></a>
+              <a routerLink="collaborateurs" mat-button>COLLABORATEURS <mat-icon>meeting_room</mat-icon></a>
             </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
            
             </section>
             <h2 class="title">Le specialiste des energies renouvellables depuis 2008</h2>
-            <h2><a>01-01-01-01-01<mat-icon> call</mat-icon> </a ><a href="mailto:email@example.com"> Demande d'informations<mat-icon>alternate_email</mat-icon></a></h2>
+            <h2><mat-icon> call</mat-icon>:<a>01-01-01-01-01</a ><a href="mailto:email@example.com"> Demande d'informations<mat-icon>alternate_email</mat-icon></a></h2>
           </section>
           <section class="module">
             <h1 fxLayoutAlign="center center" >POURQUOI NOUS FAIRE CONFIANCE ?</h1>
@@ -77,11 +77,11 @@
           <section class="module">
             <h1 fxLayoutAlign="center center" class="recommandations">NOS RECOMMANDATIONS?</h1>
             </section>
-          <app-agrement fxLayoutAlign="center center" ></app-agrement>
+        <app-recommandations></app-recommandations>
           <section class="module">
             <h1 fxLayoutAlign="center center" class="partenaires">NOS PARTENAIRES?</h1>
             </section>
-          <app-contact fxLayoutAlign="center center" ></app-contact>
+       <app-partenaires></app-partenaires>
           <section class="module">
             <h1 fxLayoutAlign="center center" class="livre"> LE LIVRE D'OR</h1>
             </section>
@@ -89,6 +89,7 @@
           <section class="module">
             <h1 fxLayoutAlign="center center" class="faq">FOIRE AU QUESTION</h1>
             </section>
+            <app-faq></app-faq>
         </mat-sidenav-content>
     </mat-sidenav-container>
 

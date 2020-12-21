@@ -9,14 +9,15 @@
   }
 
   a{
-    padding-left: 10px;
+    padding-left: 5px;
+    line-height: 10px;
   }
 
   .mat-toolbar.mat-primary {
     background: rgb(18,221,126);
 background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgba(0,249,112,0.894462008436187) 0%, rgba(96,159,241,1) 0%, rgba(6,159,154,0.5667309159992122) 100%, rgba(0,212,255,1) 100%);
     color: black !important;
-    min-height: 100px !important;
+    min-height: 120px !important;
 
 }
   
@@ -29,7 +30,7 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     max-height: 200px;
     padding: 10px;
     border-radius: 10%;
-    margin-top: 30px;
+    margin-top: 40px;
     cursor: pointer;
   }
 
@@ -75,13 +76,13 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
     }
     .dropdown-child {
     display: none;
-    margin-top: 50px;
+    margin-top: 30px;
     cursor: pointer;
     }
     .dropdown-child a {
     text-decoration: none;
     display: block;
-    font-size: 14px;
+    font-size: 12px;
     }
     .dropdown-child a :active {
       text-decoration: underline white;

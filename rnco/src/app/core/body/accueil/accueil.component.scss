@@ -46,3 +46,25 @@ h4 {
     text-decoration: underline;
 }
 
+.engagement{
+    max-width: 260px;
+    max-height: 150px;
+}
+
+span{
+    font-weight: bolder;
+    animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+
+.animateDeplac{
+    margin : 1% ;  height : auto; animation : deplac3D 5s 0s infinite linear alternate ; 
+}
+
+  @keyframes deplac3D
+  { 
+      0% {}
+      50% {transform : translateX(-50px);}
+      100% {transform : translateX(50px);}
+  }

@@ -1,0 +1,14 @@
+.login{
+
+    border: 1px solid black;
+
+    &__informations {
+        width: 450px;
+        font-weight: bolder;
+        margin-top: 10%;
+    }
+
+    &__formulaires{
+        margin-top: 5%;
+    }
+}
