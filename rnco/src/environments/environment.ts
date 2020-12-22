@@ -9,6 +9,7 @@ export const environment = {
 //user
   createUserUrl: baseUrl + 'createUser',
   getUserConnexionUrl: baseUrl + 'connexionUser',
+  getallUserUrl: baseUrl + 'allUser',
 
   //comment
   createCommentsUrl: baseUrl + 'createComment',

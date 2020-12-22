@@ -213,3 +213,19 @@ body {
 }
 
 @include carousel(5);
+
+.carousel__nav {
+  position: absolute;
+  /* bottom: 3%; */
+  top: 3% !important;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+} 
+
+.carousel__item img {
+  width: 57% !important;
+  vertical-align: middle;
+  height: 400px;
+}

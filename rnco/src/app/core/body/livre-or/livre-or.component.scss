@@ -17,6 +17,12 @@ span{
 
 a {
   cursor: pointer;
+  margin-left: 5px;
+  color: blue;
+}
+
+.pagination{
+margin-top: 65px;
 }
 
 ::before,
@@ -42,9 +48,22 @@ ul {
   background-color: white;
 }
 
+.section{
+  background-color: white !important;
+}
+
 a {
   color: #2c3e50;
   text-decoration: none;
+}
+
+a:active{
+color: red;
+}
+
+a:not([href]):not([class]) {
+  color: blue !important;
+  text-decoration: underline;
 }
 
 .btn {
@@ -266,12 +285,14 @@ Table of Contents
   -webkit-transform: translateZ(2px);
   -moz-transform: translateZ(2px);
   transform: translateZ(2px);
+  background-color: white;
 }
 
 .hardcover_front li:last-child {
   -webkit-transform: rotateY(180deg) translateZ(2px);
   -moz-transform: rotateY(180deg) translateZ(2px);
   transform: rotateY(180deg) translateZ(2px);
+  background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgba(0,249,112,0.894462008436187) 0%, rgba(96,159,241,1) 0%, rgba(6,159,154,0.5667309159992122) 100%, rgba(0,212,255,1) 100%);
 }
 
 /* HARDCOVER back */
@@ -279,12 +300,14 @@ Table of Contents
   -webkit-transform: translateZ(2px);
   -moz-transform: translateZ(2px);
   transform: translateZ(2px);
+  background-color: white;
 }
 
 .hardcover_back li:last-child {
   -webkit-transform: translateZ(-2px);
   -moz-transform: translateZ(-2px);
   transform: translateZ(-2px);
+  background-color: white;
 }
 
 /* thickness of cover */
@@ -393,12 +416,14 @@ Table of Contents
   -webkit-transform: translateZ(2px);
   -moz-transform: translateZ(2px);
   transform: translateZ(2px);
+  background-color: white;
 }
 
 .book_spine li:last-child {
   -webkit-transform: translateZ(-2px);
   -moz-transform: translateZ(-2px);
   transform: translateZ(-2px);
+  background-color: white;
 }
 
 /* thickness of book spine */
@@ -578,14 +603,12 @@ Table of Contents
 }
 
 .coverDesign::after {
-  background-image: -webkit-linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
-  background-image: -moz-linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
-  background-image: linear-gradient( -135deg, rgba(255, 255, 255, 0.45) 0%, transparent 100%);
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  border: 7px solid black;
 }
 
 .coverDesign h1 {

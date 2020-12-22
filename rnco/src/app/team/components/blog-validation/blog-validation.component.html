@@ -1,1 +1,47 @@
-<p>blog-validation works!</p>
+<section fxLayout="column">
+    <section fxLayoutAlign="center center">
+        Gestion des commentaires
+    </section>
+
+    <mat-form-field>
+      <mat-label>Recherche</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- Author Column -->
+        <ng-container matColumnDef="Author">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Auteur. </th>
+          <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+      
+        <!-- Name Commentaires -->
+        <ng-container matColumnDef="Commentaires">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Commentaires </th>
+          <td mat-cell *matCellDef="let element"> {{element.article}} </td>
+        </ng-container>
+      
+        <!-- date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de création </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+      
+        <!-- status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
+          <td mat-cell *matCellDef="let element; index as i">
+              <button  >{{statusOfComments()?'ACTIF': 'INACTIF'}}</button>
+         </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+</section>

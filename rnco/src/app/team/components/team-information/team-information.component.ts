@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
+/** models */
+import { UserInformations } from '../../models/user_informations.interface';
+/** services */
+import { TeamService } from '../../services/team.service';
 
 @Component({
   selector: 'app-team-information',
@@ -7,9 +14,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamInformationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private teamService: TeamService) { }
+
+  
 
   ngOnInit(): void {
+   
   }
+
 
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /** components */
@@ -39,6 +39,7 @@ import { CommentService } from './services/comment.service';
     TeamService,
     BlogFormulaireService,
     CommentService
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TeamModule { }

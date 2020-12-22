@@ -32,6 +32,56 @@ return this.fb.group({
       }
       ),
 
+      createPassword: new FormControl(
+        {
+          value: '',
+          disabled: false
+        },
+        {
+          validators: []
+        }
+        ),
+
+        createEmail: new FormControl(
+          {
+            value: '',
+            disabled: false
+          },
+          {
+            validators: []
+          }
+          ),
+
+          createStatus: new FormControl(
+            {
+              value: '',
+              disabled: false
+            },
+            {
+              validators: []
+            }
+            ),
+
+            createfirstName: new FormControl(
+              {
+                value: '',
+                disabled: false
+              },
+              {
+                validators: []
+              }
+              ),
+
+              createLastName: new FormControl(
+                {
+                  value: '',
+                  disabled: false
+                },
+                {
+                  validators: []
+                }
+                ),
+
 
 })
   }

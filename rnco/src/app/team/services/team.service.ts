@@ -42,6 +42,10 @@ export class TeamService {
     return this.http.post<UserInformations>(this.env.getUserConnexionUrl, login)
   }
 
+  getAllUser(): Observable<UserInformations[]> {
+    return this.http.get<UserInformations[]>(this.env.getallUserUrl)
+  }
+
 
 
 }

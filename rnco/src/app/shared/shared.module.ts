@@ -16,7 +16,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -35,7 +36,9 @@ import {MatCardModule} from '@angular/material/card';
     MatCheckboxModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatSelectModule
     
   ],
   exports: [
@@ -52,7 +55,9 @@ import {MatCardModule} from '@angular/material/card';
     MatCheckboxModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

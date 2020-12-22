@@ -1,1 +1,105 @@
-<p>gestion-team works!</p>
+
+<section fxLayout="column">
+    <section fxLayoutAlign="center center">
+        Gestion des collaborateurs
+    </section>
+
+    <section fxLayout="column">
+        <form [formGroup]="createTeamsForm" fxLayout="column" fxLayoutAlign="center center">
+                <span>Création d'un utilsateur</span>
+
+                <mat-form-field class="example-form-field">
+                    <mat-label>Nom</mat-label>
+                    <input matInput type="text" formControlName="createfirstName">
+                    <button mat-button *ngIf="createTeamsForm.get('createfirstName').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field class="example-form-field">
+                    <mat-label>Prénom</mat-label>
+                    <input matInput type="text" formControlName="createLastName">
+                    <button mat-button *ngIf="createTeamsForm.get('createLastName').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+            <mat-form-field class="example-form-field">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="createEmail">
+                <button mat-button *ngIf="createTeamsForm.get('createEmail').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field class="example-form-field">
+                <mat-label>Mot de passe</mat-label>
+                <input matInput type="text" formControlName="createPassword">
+                <button mat-button *ngIf="createTeamsForm.get('createPassword').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="createStatus">
+                  <mat-option  [value]="'role_admin'">ADMINISTRATEUR</mat-option>
+                  <mat-option  [value]="'role_gestionnaire'">GESTIONNAIRE</mat-option>
+                  <mat-option  [value]="'role_agents'">AGENTS</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <button (click)="saveNewTeamUser()">Sauvegarder</button>
+
+
+        </form>
+    </section>
+
+    <mat-form-field>
+        <mat-label>Recherche</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom / PPrénom. </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} + {{element.lastName}} </td>
+        </ng-container>
+      
+        <!-- roles Commentaires -->
+        <ng-container matColumnDef="roles">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Roles </th>
+          <td mat-cell *matCellDef="let element"> {{element.roles}} </td>
+        </ng-container>
+      
+        <!-- email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+         <!-- password Column -->
+         <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Mot de passe </th>
+            <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+          </ng-container>
+
+        <!-- password status -->
+         <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+      
+
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+      </table>
+
+</section>
