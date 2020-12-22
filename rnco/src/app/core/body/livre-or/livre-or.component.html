@@ -41,13 +41,39 @@
 
           <!-- Pages -->
           
-          <ul class='page' *ngFor="let comment of comments">
+          <!-- <ul class='page' *ngFor="let comment of comments | slice:0:3; let i=index">
             <li >Autheur: {{comment?.author}}</li>
             <li class="btn">...{{comment?.article}}</li>
           </ul>
           
+          <section fxLayout="row" class="paginate" *ngFor="let index of managementOfPaginate()">
+            <p>{{index}}</p>
+          </section> -->
+          <div *ngFor="let comment of pagedItems " class='page'>
+            <li >Autheur: {{comment?.author}}</li>
+            <li class="btn">...{{comment?.article}}</li></div>
 
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{page}}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
+    
           <!-- Back -->
+
 
           <ul class='hardcover_back'>
             <li></li>

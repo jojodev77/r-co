@@ -12,6 +12,11 @@ span{
   font-weight: bolder;
   font-size: 16px;
   text-decoration: underline;
+  padding: 10px;
+}
+
+a {
+  cursor: pointer;
 }
 
 ::before,
@@ -584,7 +589,8 @@ Table of Contents
 }
 
 .coverDesign h1 {
-  color: #fff;
+  color: black;
+  font-weight: bolder;
   font-size: 2.2em;
   letter-spacing: 0.05em;
   text-align: center;

@@ -21,6 +21,7 @@ import { RecommandationsComponent } from './body/recommandations/recommandations
 import { CollaborateurComponent } from './body/collaborateur/collaborateur.component';
 import { CommentService } from '../team/services/comment.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PagerService } from './body/services/pagination-service';
 
 
 
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
   exports: [
 LivreOrComponent
   ],
-  providers: [SimulateurService, CommentService],
+  providers: [SimulateurService, CommentService, PagerService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class CoreModule { }
