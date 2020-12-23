@@ -20,4 +20,12 @@ export class CommentService {
   getAllComments(): Observable<Comments[]> {
     return this.http.get<Comments[]>(this.env.getAllCommentsUrl)
   }
+
+  deleteById(comment: Comments): Observable<Comments> {
+    return this.http.post<Comments>(this.env.deleteCommentsUrl, comment)
+  }
+
+  updateById(comment: Comments): Observable<Comments[]> {
+    return this.http.put<Comments[]>(this.env.updateCommentsUrl, comment)
+  }
 }

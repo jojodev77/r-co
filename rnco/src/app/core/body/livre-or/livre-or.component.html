@@ -1,10 +1,10 @@
 <section fxLayout="row" fxLayout.lt-md="column">
-  <form [formGroup]="blogForm">
+  <form [formGroup]="blogForm" class="mat-elevation-z8">
     <section fxLayout="column">
 
       <span>AJOUTER VOTRE COMMENTAIRE</span>
   <mat-form-field class="example-form-field">
-    <mat-label>Nom -- prénom -- pseudonyme</mat-label>
+    <mat-label>prénom</mat-label>
     <input matInput type="text" formControlName="article">
     <button mat-button *ngIf="blogForm.get('article').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
       <mat-icon>close</mat-icon>

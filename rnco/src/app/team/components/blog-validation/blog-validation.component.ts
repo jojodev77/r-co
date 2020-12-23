@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Location } from '@angular/common';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -15,10 +16,10 @@ import { CommentService } from '../../services/comment.service';
 })
 export class BlogValidationComponent implements OnInit, AfterViewInit {
 
-  constructor(  private commentService: CommentService,) { }
+  constructor(  private commentService: CommentService, private location: Location) { }
 
   comments: Comments[] = [];
-  displayedColumns: string[] = ['Author', 'Commentaires', 'date', 'status'];
+  displayedColumns: string[] = ['Author', 'Commentaires', 'date', 'status', 'delete'];
   dataSource = new MatTableDataSource<Comments>();
   @ViewChild(MatSort) sort: MatSort;
   status: string;
@@ -61,4 +62,55 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  updateCommentStatutOfTrue(comment: any) {
+    let com = {
+      author: comment.author,
+      article: comment.article,
+      validate: false,
+      date: comment.date,
+      id: comment.id
+    } as Comments;
+    this.commentService.updateById(com).subscribe(
+      (data: any) => 
+      this.comments = data.comment
+    );
+    this.commentService.getAllComments().subscribe(
+      (data: any) => {
+        this.comments = data.comment;
+      })
+      this.pageRefresh()
+  }
+
+  updateCommentStatutOfFalse(comment: Comments) {
+    let com = {
+      author: comment.author,
+      article: comment.article,
+      validate: true,
+      date: comment.date,
+      id: comment.id
+    } as Comments;
+    this.commentService.updateById(com).subscribe(
+      (data: any) => 
+      this.comments = data.comment
+    )
+    this.commentService.getAllComments().subscribe(
+      (data: any) => {
+        this.comments = data.comment;
+      })
+      this.pageRefresh()
+  }
+
+  deteComment(comment: Comments) {
+    console.log(comment)
+    this.commentService.deleteById(comment).subscribe(
+      (data: any) => 
+      this.comments = data.comment
+    ) 
+    this.pageRefresh();
+  }
+
+  pageRefresh() {
+    location.reload();
+ }
 }

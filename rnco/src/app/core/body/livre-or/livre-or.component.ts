@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 /** models */
 import { Comments } from 'src/app/team/models/comment.interface';
@@ -20,7 +21,8 @@ export class LivreOrComponent implements OnInit {
   constructor(
     private blogFormulaireService: BlogFormulaireService,
     private commentService: CommentService,
-    private pagerService: PagerService  ) { }
+    private pagerService: PagerService,
+    private _snackBar: MatSnackBar  ) { }
 
   blogForm: FormGroup;
   comments: Comments[] = [];
@@ -49,9 +51,9 @@ export class LivreOrComponent implements OnInit {
     } as Comments;
     this.commentService.createComments(comments).subscribe(
       (data: Comments) => {
-        
       }
     )
+    this.openSnackBar('Commentaires ajouté !', 'Il sera visible aprés validation')
   }
 
   // managementOfPaginate() {
@@ -73,5 +75,11 @@ export class LivreOrComponent implements OnInit {
 
     // get current page of items
     this.pagedItems = this.comments.slice(this.pager.startIndex, this.pager.endIndex + 1);
+}
+
+openSnackBar(message: string, action: string) {
+  this._snackBar.open(message, action, {
+    duration: 3000,
+  });
 }
 }

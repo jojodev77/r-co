@@ -14,6 +14,8 @@ export const environment = {
   //comment
   createCommentsUrl: baseUrl + 'createComment',
   getAllCommentsUrl: baseUrl + 'getAllComment',
+  deleteCommentsUrl: baseUrl + 'deleteComment',
+  updateCommentsUrl: baseUrl + 'updateComment',
 
     //information
     createInformationsUrl: baseUrl + 'createInformations',

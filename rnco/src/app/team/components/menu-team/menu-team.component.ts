@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 /** rxjs */
 import { Subscription } from 'rxjs';
@@ -26,5 +27,9 @@ export class MenuTeamComponent implements OnInit {
       }
     )
   }
+
+  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    console.log(tabChangeEvent.tab.textLabel);
+}
 
 }

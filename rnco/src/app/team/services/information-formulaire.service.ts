@@ -30,7 +30,7 @@ return this.fb.group({
       }
       ),
 
-      informations: new FormControl(
+      information: new FormControl(
         {
           value: '',
           disabled: false

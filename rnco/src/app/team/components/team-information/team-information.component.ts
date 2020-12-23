@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Location } from '@angular/common';
+
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -20,7 +22,8 @@ export class TeamInformationComponent implements OnInit {
 
   constructor(
     private teamService: TeamService,
-    private informationsService: InformationService) { }
+    private informationsService: InformationService,
+    private location: Location) { }
 
 informations: any;
   
@@ -28,11 +31,14 @@ informations: any;
   ngOnInit(): void {
    this.informationsService.getAllInformations().subscribe(
      (data: any)=> {
-       this.informations = data.Informations
+       this.informations = data.Informations;
      }
    )
 
   }
 
+  pageRefresh() {
+    location.reload();
+ }
 
 }
