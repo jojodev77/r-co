@@ -2,8 +2,18 @@
     <span fxLayoutAlign="center center">INFORMATIONS COLLABORATEURS</span>
 
     <section *ngFor="let info of informations">
-        <section *ngIf="info.type === 'challenge'">
+        <section *ngIf="info.title === null" fxLayout="column">
             
+            <h1>AUNCUNE INFORMATIONS POUR LE MOMENT:</h1>
+           
+
+        </section>
+        <section *ngIf="info.type === 'challenge'" fxLayout="column">
+            
+            <h1>CHALLENGE:</h1>
+            <img src="assets/challenge.jpg">
+            <h2>{{info.title}}</h2>
+            <h3>{{info.information}}</h3>
 
         </section>
 
@@ -16,7 +26,10 @@
         </section>
 
         <section *ngIf="info.type === 'avertissement'">
-
+            <h1>AVERTISSEMENT:</h1>
+            <img src="assets/avertissement.jpg">
+            <h2>{{info.title}}</h2>
+            <h3>{{info.informations}}</h3>
         </section>
     </section>
 </section>

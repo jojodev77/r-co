@@ -2,6 +2,6 @@ export interface Informations {
     id: number;
     type: string;
     title: string;
-    informations: string;
+    information: string;
     validationDate: string;
 }
