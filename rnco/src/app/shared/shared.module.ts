@@ -18,6 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [],
@@ -38,7 +41,9 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatCardModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
   exports: [
@@ -57,7 +62,9 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatCardModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class SharedModule { }

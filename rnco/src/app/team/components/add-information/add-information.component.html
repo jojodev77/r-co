@@ -1,1 +1,47 @@
-<p>add-information works!</p>
+<section fxLayout="row">
+
+    <section fxLayout="column" fxLayoutAlign="center center">
+        <span> Crée une informations:</span>
+            <form [formGroup]="informationsForm" fxLayout="column" fxLayoutAlign="center center">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Type d'informations</mat-label>
+                    <mat-select formControlName="type">
+                      <mat-option  [value]="'challenge'">CHALLENGE</mat-option>
+                      <mat-option  [value]="'administrative'">ADMINISTRATIVE</mat-option>
+                      <mat-option  [value]="'collectivite'">VIE COMMUNE</mat-option>
+                      <mat-option  [value]="'avertissement'">AVERTISSEMENT</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-form-field">
+                    <mat-label>titre</mat-label>
+                    <input matInput type="text" formControlName="title">
+                    <button mat-button *ngIf="informationsForm.get('title').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field class="example-form-field">
+                    <mat-label>Contenu</mat-label>
+                    <input matInput type="text" formControlName="informations">
+                    <button mat-button *ngIf="informationsForm.get('informations').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field class="example-form-field">
+                    <mat-label>Date de début</mat-label>
+                    <input matInput type="text" formControlName="validationDate">
+                    <button mat-button *ngIf="informationsForm.get('validationDate').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <button (click)="createInformations()">CREATION</button>
+
+            </form>
+
+    </section>
+
+</section>

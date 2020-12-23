@@ -22,6 +22,8 @@ import { TeamService } from './services/team.service';
 import { BlogFormulaireService } from './services/blog-formulaire.service';
 import { BlogService } from './services/blog.service';
 import { CommentService } from './services/comment.service';
+import { InformationFormulaireService } from './services/information-formulaire.service';
+import { InformationService } from './services/information.service';
 
 
 
@@ -38,7 +40,9 @@ import { CommentService } from './services/comment.service';
     TeamFormulaireService,
     TeamService,
     BlogFormulaireService,
-    CommentService
+    CommentService,
+    InformationFormulaireService,
+    InformationService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

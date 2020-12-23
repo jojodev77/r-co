@@ -14,7 +14,14 @@ export const environment = {
   //comment
   createCommentsUrl: baseUrl + 'createComment',
   getAllCommentsUrl: baseUrl + 'getAllComment',
+
+    //information
+    createInformationsUrl: baseUrl + 'createInformations',
+    getAllInformationsUrl: baseUrl + 'getAllInformations',
 };
+
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

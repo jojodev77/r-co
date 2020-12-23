@@ -53,10 +53,15 @@ export class GestionTeamComponent implements OnInit, AfterViewInit {
       lastName: this.createTeamsForm.get('createLastName').value,
       email: this.createTeamsForm.get('createEmail').value,
       password: this.createTeamsForm.get('createPassword').value,
-      status: this.createTeamsForm.get('createStatus').value,
+      status: true,
+      roles: this.createTeamsForm.get('createRoles').value
     } as UserInformations;
 console.log(newUserTeam)
-    this.teamService.createUser(newUserTeam);
+    this.teamService.createUser(newUserTeam).subscribe(
+      (data: UserInformations) => {
+        console.log(data)
+      }
+    );
   }
 
 }

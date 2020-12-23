@@ -1,8 +1,8 @@
-
-<section fxLayout="column">
-    <section fxLayoutAlign="center center">
-        Gestion des collaborateurs
-    </section>
+<section fxLayoutAlign="center center">
+  Gestion des collaborateurs
+</section>
+<section fxLayout="row">
+  
 
     <section fxLayout="column">
         <form [formGroup]="createTeamsForm" fxLayout="column" fxLayoutAlign="center center">
@@ -42,7 +42,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Status</mat-label>
-                <mat-select formControlName="createStatus">
+                <mat-select formControlName="createRoles">
                   <mat-option  [value]="'role_admin'">ADMINISTRATEUR</mat-option>
                   <mat-option  [value]="'role_gestionnaire'">GESTIONNAIRE</mat-option>
                   <mat-option  [value]="'role_agents'">AGENTS</mat-option>
@@ -54,7 +54,7 @@
 
         </form>
     </section>
-
+<section fxLayout="column">
     <mat-form-field>
         <mat-label>Recherche</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
@@ -101,5 +101,6 @@
             <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
           </tr>
       </table>
+    </section>
 
 </section>

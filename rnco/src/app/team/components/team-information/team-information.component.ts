@@ -4,8 +4,12 @@ import { MatTableDataSource } from '@angular/material/table';
 
 /** models */
 import { UserInformations } from '../../models/user_informations.interface';
+
 /** services */
 import { TeamService } from '../../services/team.service';
+import { InformationService } from '../../services/information.service';
+import { Informations } from '../../models/informations.interface';
+
 
 @Component({
   selector: 'app-team-information',
@@ -14,12 +18,20 @@ import { TeamService } from '../../services/team.service';
 })
 export class TeamInformationComponent implements OnInit {
 
-  constructor(private teamService: TeamService) { }
+  constructor(
+    private teamService: TeamService,
+    private informationsService: InformationService) { }
 
+informations: any;
   
 
   ngOnInit(): void {
-   
+   this.informationsService.getAllInformations().subscribe(
+     (data: any)=> {
+       this.informations = data.Informations
+     }
+   )
+
   }
 
 
