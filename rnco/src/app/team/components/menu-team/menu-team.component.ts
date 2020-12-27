@@ -19,6 +19,7 @@ export class MenuTeamComponent implements OnInit {
 
   isConnectSubscription: Subscription;
   constructor( private teamService: TeamService) { }
+  userInformation: UserInformations;
 
   ngOnInit(): void {
     this.isConnectSubscription = this.teamService.setUserConnect.subscribe(

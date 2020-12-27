@@ -40,7 +40,6 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
         for (let index = 0; index < this.comments.length; index++) {
       
           this.statusOfComments(this.comments[index].validate)
-          console.log(this.statusOfComments(this.comments[index].validate))
         }
       }
     )

@@ -8,7 +8,7 @@
            
 
         </section>
-        <section *ngIf="info.type === 'challenge'" fxLayout="column">
+        <section *ngIf="info.type === 'challenge'" fxLayout="column" class="section mat-elevation-z8">
             
             <h1>CHALLENGE:</h1>
             <img src="assets/challenge.jpg">
@@ -17,15 +17,15 @@
 
         </section>
 
-        <section *ngIf="info.type === 'administrative'">
+        <section *ngIf="info.type === 'administrative'" fxLayout="column" class="section mat-elevation-z8">
 
         </section>
 
-        <section *ngIf="info.type === 'collectivite'">
+        <section *ngIf="info.type === 'collectivite'" fxLayout="column" class="section mat-elevation-z8">
 
         </section>
 
-        <section *ngIf="info.type === 'avertissement'">
+        <section *ngIf="info.type === 'avertissement'" fxLayout="column" class="section mat-elevation-z8">
             <h1>AVERTISSEMENT:</h1>
             <img src="assets/avertissement.jpg">
             <h2>{{info.title}}</h2>
