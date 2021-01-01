@@ -13,7 +13,6 @@ import { MenuTeamComponent } from './components/menu-team/menu-team.component';
 /** Module */
 import { SharedModule } from '../shared/shared.module';
 import { TeamRoutingModule } from './team.module.routing';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 /** service */
@@ -33,8 +32,7 @@ import { InformationService } from './services/information.service';
   imports: [
     CommonModule,
     SharedModule,
-    TeamRoutingModule,
-    HttpClientModule
+    TeamRoutingModule
   ],
   providers: [
     TeamFormulaireService,

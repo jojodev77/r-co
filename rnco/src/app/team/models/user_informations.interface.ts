@@ -6,4 +6,5 @@ export interface UserInformations {
     firstName: string;
     lastName: string;
     id: number;
+    jwtToken: string;
 }
