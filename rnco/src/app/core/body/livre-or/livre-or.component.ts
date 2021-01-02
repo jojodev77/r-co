@@ -33,9 +33,10 @@ export class LivreOrComponent implements OnInit {
 
   ngOnInit(): void {
   this.blogForm =  this.blogFormulaireService.buildForm();
-  this.commentService.getAllComments().subscribe(
+  this.commentService.getAllCommentsByValidate().subscribe(
     (data: any) => {
-      this.comments = data.comment;
+      console.log(data)
+      this.comments = data.comments;
       this.setPage(1);
     }
   )
@@ -66,15 +67,31 @@ export class LivreOrComponent implements OnInit {
   // }
 
   setPage(page: number) {
-    if (page < 1 || page > this.pager.totalPages) {
+    if (page) {
+      if (page < 1 || page > this.pager.totalPages) {
         return;
+    }
+    
     }
 
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.comments.length, page);
+    if (this.comments) {
+      if (page) {
+        console.log(this.comments)
+      this.pager = this.pagerService.getPager(this.comments.length, page);
+      }
+      
+    }
+   
 
     // get current page of items
-    this.pagedItems = this.comments.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    if (this.comments) {
+    if (this.pager) {
+      this.pagedItems = this.comments.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    }
+     
+    }
+    
 }
 
 openSnackBar(message: string, action: string) {

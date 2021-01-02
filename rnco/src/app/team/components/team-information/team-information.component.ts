@@ -11,6 +11,7 @@ import { UserInformations } from '../../models/user_informations.interface';
 import { TeamService } from '../../services/team.service';
 import { InformationService } from '../../services/information.service';
 import { Informations } from '../../models/informations.interface';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class TeamInformationComponent implements OnInit {
   constructor(
     private teamService: TeamService,
     private informationsService: InformationService,
-    private location: Location) { }
+    private location: Location,
+    private router: Router) { }
 
 informations: any;
   
@@ -34,6 +36,11 @@ informations: any;
        this.informations = data.Informations;
      }
    )
+   let token = sessionStorage.getItem('userConnectRNCO');
+   if (!token) {
+     this.router.navigate(['/login'])
+     
+   }
 
   }
 

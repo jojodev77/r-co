@@ -21,6 +21,10 @@ export class CommentService {
     return this.http.get<Comments[]>(this.env.getAllCommentsUrl)
   }
 
+  getAllCommentsByValidate(): Observable<Comments[]> {
+    return this.http.get<Comments[]>(this.env.getAllCommentByValidate)
+  }
+
   deleteById(comment: Comments): Observable<Comments> {
     return this.http.post<Comments>(this.env.deleteCommentsUrl, comment)
   }

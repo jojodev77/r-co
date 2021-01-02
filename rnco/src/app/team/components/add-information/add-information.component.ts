@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Informations } from '../../models/informations.interface';
 
 /** services */
@@ -14,12 +15,18 @@ import { InformationService } from '../../services/information.service';
 export class AddInformationComponent implements OnInit {
 
   constructor(private informationsServiceFormulaire: InformationFormulaireService,
-    private informationsService: InformationService) { }
+    private informationsService: InformationService,
+    private router: Router) { }
 informationsForm: FormGroup;
 informations: Informations[];
 
   ngOnInit(): void {
    this.informationsForm = this.informationsServiceFormulaire.buildForm();
+   let token = sessionStorage.getItem('userConnectRNCO');
+   if (!token) {
+     this.router.navigate(['/login'])
+     
+   }
   }
 
   createInformations() {

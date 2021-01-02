@@ -47,13 +47,13 @@ export class LoginComponent implements OnInit {
       this.teamService.connexion(this.login).subscribe(
         (data: UserInformations) => {
           this.userInformation = data;
-          console.log(this.userInformation)
-          sessionStorage.setItem('userConnectRNCO', this.userInformation.jwtToken)
+          sessionStorage.setItem('userConnectRNCO', this.userInformation.jwtToken);
+        
           this.teamService.setUserConnect.next(this.userInformation)
 
           this.isConnectSubscription = this.teamService.setUserConnect.subscribe(
             (data: UserInformations) => {
-              console.log(data)
+              
             }
           )
           if (this.userInformation) {

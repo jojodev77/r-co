@@ -11,7 +11,11 @@ export class HomeTeamComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
+    let token = sessionStorage.getItem('userConnectRNCO');
+    if (!token) {
+      this.router.navigate(['/login'])
+      
+    }
   }
 
 }

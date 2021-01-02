@@ -8,6 +8,7 @@ import { Comments } from '../../models/comment.interface';
 
 /** services */
 import { CommentService } from '../../services/comment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-validation',
@@ -16,7 +17,8 @@ import { CommentService } from '../../services/comment.service';
 })
 export class BlogValidationComponent implements OnInit, AfterViewInit {
 
-  constructor(  private commentService: CommentService, private location: Location) { }
+  constructor(  private commentService: CommentService, private location: Location, 
+    private router: Router) { }
 
   comments: Comments[] = [];
   displayedColumns: string[] = ['Author', 'Commentaires', 'date', 'status', 'delete'];
@@ -26,6 +28,11 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this. initializeComments();
+    let token = sessionStorage.getItem('userConnectRNCO');
+    if (!token) {
+      this.router.navigate(['/login'])
+      
+    }
   }
 
   ngAfterViewInit() {
