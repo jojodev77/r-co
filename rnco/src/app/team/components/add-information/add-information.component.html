@@ -30,12 +30,19 @@
                     </button>
                 </mat-form-field>
 
-                <mat-form-field class="example-form-field">
+                <!-- <mat-form-field class="example-form-field">
                     <mat-label>Date de début</mat-label>
                     <input matInput type="text" formControlName="validationDate">
                     <button mat-button *ngIf="informationsForm.get('validationDate').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                       <mat-icon>close</mat-icon>
                     </button>
+                </mat-form-field> -->
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Date de fin:</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="validationDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
 
                 <button (click)="createInformations()">CREATION</button>
