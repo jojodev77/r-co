@@ -10,6 +10,7 @@ export const environment = {
   createUserUrl: baseUrl + 'createUser',
   getUserConnexionUrl: baseUrl + 'connexionUser',
   getallUserUrl: baseUrl + 'allUser',
+  deleteUserUrl: baseUrl + 'deleteUser',
 
   //comment
   createCommentsUrl: baseUrl + 'createComment',
@@ -21,6 +22,7 @@ export const environment = {
     //information
     createInformationsUrl: baseUrl + 'createInformations',
     getAllInformationsUrl: baseUrl + 'getAllInformations',
+    deleteInformationsUrl: baseUrl + 'deleteInformations',
 };
 
 

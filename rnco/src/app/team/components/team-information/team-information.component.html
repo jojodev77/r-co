@@ -8,6 +8,7 @@
            
 
         </section>
+        <button *ngIf="roles === 'role_admin'" (click)="deleteInformations(info)">SUPPRIMER</button>
         <section *ngIf="info.type === 'challenge'" fxLayout="column" class="section mat-elevation-z8">
             
             <h1>CHALLENGE:</h1>

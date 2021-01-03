@@ -19,4 +19,8 @@ export class InformationService {
   getAllInformations(): Observable<Informations[]> {
     return this.http.get<Informations[]>(this.env.getAllInformationsUrl)
   }
+
+  deleteInformation(info: Informations): Observable<Informations> {
+return this.http.post<Informations>(this.env.deleteInformationsUrl, info)
+  }
 }

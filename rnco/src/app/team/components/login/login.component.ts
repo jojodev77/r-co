@@ -36,9 +36,7 @@ export class LoginComponent implements OnInit {
     this.teamForm = this.teamFormulaireService.buildForm();
   }
 
-  createUser() {
-
-  }
+ 
 
   validConnexion() {
     this.login = {
@@ -52,6 +50,7 @@ export class LoginComponent implements OnInit {
           console.log(this.userInformation)
           sessionStorage.setItem('userConnectRNCO', this.userInformation.jwtToken);
           sessionStorage.setItem('name', this.userInformation.user.firstName);
+          sessionStorage.setItem('roles', this.userInformation.user.roles);
           this.teamService.setUserConnect.next(this.userInformation)
           this.isConnectSubscription = this.teamService.setUserConnect.subscribe(
             (data: UserInformations) => {

@@ -30,11 +30,11 @@ export class  HttpConfigInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
         map((event: HttpEvent<any>) => {
             if (event instanceof HttpResponse) {
-                console.log('event--->>>', event);
-                if (event.status === 401) {
+                console.log('event--->>>', event.status);
+                if (event.status == 401) {
                     this.router.navigate(['/'])
                 }
-                if (event.status === 503) {
+                if (event.status == 503) {
                     this.router.navigate(['/'])
                 }
             }

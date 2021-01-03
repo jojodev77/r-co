@@ -1,4 +1,5 @@
-<section fxLayout="column" fxLayoutAlign="center center" class="fiche_client">
+<section fxLayout="column" fxLayoutAlign="center center" class="fiche_client" id="contentToConvert">
+  <mat-dialog-content >
     <h1> FICHE CLIENT</h1>
 <form [formGroup]="fiche_client_form">
 
@@ -75,12 +76,14 @@
         <mat-form-field appearance="fill">
             <mat-label>Type de chauffage</mat-label>
             <mat-select formControlName="typeChauffage" multiple>
-              <mat-option  [value]="'electricite'">ELECTRICITE</mat-option>
-              <mat-option  [value]="'gaz'">GAZ</mat-option>
+              <mat-option  [value]="'electricite'">Electricite</mat-option>
+              <mat-option  [value]="'gaz'">Gaz</mat-option>
+              <mat-option  [value]="'fioul'">Fioul</mat-option>
               <mat-option  [value]="'pap'">Pompes à chaleur</mat-option>
               <mat-option  [value]="'pab'">Poele a bois</mat-option>
               <mat-option  [value]="'pag'">Poele a granule</mat-option>
               <mat-option  [value]="'solaire'">Solaire</mat-option>
+              <mat-option  [value]="'geo'">Geothermie</mat-option>
             </mat-select>
           </mat-form-field>
     </section>
@@ -113,4 +116,10 @@
 
 
 </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button (click)="captureScreen()">EXPORTER</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
 </section>
