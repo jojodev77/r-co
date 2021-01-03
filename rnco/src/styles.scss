@@ -6,6 +6,13 @@ body { margin: 0; font-family: arial;
     
 }
 
+@media (max-width: 950px) {
+    body{
+        padding: 3px;
+        margin: 5;
+    }
+}
+
 button{
     width: 150px;
     border-radius: 40%;

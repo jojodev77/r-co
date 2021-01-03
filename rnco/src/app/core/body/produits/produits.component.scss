@@ -24,3 +24,29 @@
       }
     }
   }
+
+  
+@media (max-width: 950px) {
+
+  .produits{
+    &__img{
+      min-width: 100%;
+      max-height: 280px;
+    }
+    &__description{
+      padding: 30px;
+      border: 1px solid black;
+
+      &__cpu{
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        font-weight: bolder;
+        padding: 15px;
+      }
+      &__cpuDef{
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+}
