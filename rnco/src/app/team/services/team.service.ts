@@ -46,6 +46,10 @@ export class TeamService {
     return this.http.get<UserInformations[]>(this.env.getallUserUrl)
   }
 
+  deleteUser(user: UserInformations): Observable<UserInformations> {
+return this.http.post<UserInformations>(this.env.deleteUserUrl, user)
+  }
+
 
 
 }

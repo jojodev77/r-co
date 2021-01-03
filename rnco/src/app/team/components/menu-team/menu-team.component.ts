@@ -29,7 +29,7 @@ export class MenuTeamComponent implements OnInit, OnDestroy {
       (data: UserInformations) => {
       }
     ), (err) => {
-      if (err.status === 401) { this.router.navigateByUrl('/login');
+      if (err.status == 401) { this.router.navigateByUrl('/login');
   }
 }
     let token = sessionStorage.getItem('userConnectRNCO');
@@ -42,7 +42,7 @@ export class MenuTeamComponent implements OnInit, OnDestroy {
       (data: UserInformations) => {
       }
     ), (err) => {
-      if (err.status === 401) { this.router.navigateByUrl('/login');
+      if (err.status == 401) { this.router.navigateByUrl('/login');
   }
 }
    }, 50000);

@@ -56,7 +56,7 @@ export class BlogValidationComponent implements OnInit, AfterViewInit, OnDestroy
         }
       }
     ), (err) => {
-      if (err.status === 401) { this.router.navigateByUrl('/login');
+      if (err.status == 401) { this.router.navigateByUrl('/login');
   }
 }
   }

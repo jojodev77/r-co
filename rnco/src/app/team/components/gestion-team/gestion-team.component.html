@@ -1,7 +1,7 @@
 <section fxLayoutAlign="center center">
   GESTIONS DES COLLABORATEURS
 </section>
-<section fxLayout="row" fxLayoutAlign="space-around center">
+<section>
   
 
     <section fxLayout="column">
@@ -48,6 +48,7 @@
                   <mat-option  [value]="'role_agents'">AGENTS</mat-option>
                 </mat-select>
               </mat-form-field>
+              
 
               <button (click)="saveNewTeamUser()">Sauvegarder</button>
 
@@ -65,7 +66,7 @@
         <!-- name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom / PPrénom. </th>
-          <td mat-cell *matCellDef="let element"> {{element.firstName}} + {{element.lastName}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}}-{{element.lastName}} </td>
         </ng-container>
       
         <!-- roles Commentaires -->
@@ -91,6 +92,15 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
             <td mat-cell *matCellDef="let element"> {{element.status}} </td>
           </ng-container>
+
+          <!-- password status -->
+         <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Suppression </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button (click)="deleteUser(element)">Supprimer</button>
+            {{element.status}}
+           </td>
+        </ng-container>
       
 
       

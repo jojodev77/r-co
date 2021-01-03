@@ -26,7 +26,7 @@ export class GestionTeamComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   teams: UserInformations[];
-  displayedColumns: string[] = ['name', 'roles', 'email', 'password', 'status'];
+  displayedColumns: string[] = ['name', 'roles', 'email', 'password', 'status','delete'];
   dataSource = new MatTableDataSource<UserInformations>();
   @ViewChild(MatSort) sort: MatSort;
   createTeamsForm: FormGroup;
@@ -52,7 +52,7 @@ export class GestionTeamComponent implements OnInit, AfterViewInit, OnDestroy {
         this.dataSource.data = this.teams;
       }
     ), (err) => {
-      if (err.status === 401) {
+      if (err.status == 401) {
         this.router.navigateByUrl('/login');
       }
     }
@@ -72,8 +72,23 @@ export class GestionTeamComponent implements OnInit, AfterViewInit, OnDestroy {
       status: true,
       roles: this.createTeamsForm.get('createRoles').value
     } as UserInformations;
-    this.teamService.createUser(newUserTeam)
-    this.initialValueTeam();
+    this.teamService.createUser(newUserTeam).subscribe(
+      (data: any) => {
+      }
+    )
+    this. initialValueTeam()
+    this.router.navigate(['./collaborateurs/menu_collaborateurs'])
+  }
+
+  deleteUser(user: UserInformations) {
+    if (user) {
+      console.log(user)
+      this.teamService.deleteUser(user).subscribe(
+        (data: any) => {console.log(data)}
+      );
+      this. initialValueTeam()
+      this.router.navigate(['./collaborateurs/menu_collaborateurs'])
+    }
   }
 
 }

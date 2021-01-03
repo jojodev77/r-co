@@ -12,7 +12,9 @@ import { TeamService } from '../../services/team.service';
 import { InformationService } from '../../services/information.service';
 import { Informations } from '../../models/informations.interface';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { pipe, Subscription, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -42,6 +44,11 @@ roles: string;
   }
 
   initialInformation() {
+    let errorMsg = (+sessionStorage.getItem('errorHttp'));
+    console.log(errorMsg)
+    if (errorMsg === 401) {
+      this.router.navigate(['./collaborateurs'])
+    }
     this.informationSubscription =  this.informationsService.getAllInformations().subscribe(
       (data: any)=> {
         this.informations = data.Informations;

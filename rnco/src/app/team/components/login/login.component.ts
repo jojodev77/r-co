@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.teamForm = this.teamFormulaireService.buildForm();
+    sessionStorage.removeItem('errorHttp')
   }
 
  
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
               
             }
           ), (err) => {
-            if (err.status === 401) {
+            if (err.status == 401) {
               this.openSnackBar('Session expiré', '')
               this.router.navigateByUrl('/login');
             }

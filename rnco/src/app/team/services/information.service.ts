@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Informations } from '../models/informations.interface';
 
@@ -9,7 +11,7 @@ import { Informations } from '../models/informations.interface';
 })
 export class InformationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   env = environment;
 
   createInformations(informations: Informations): Observable<Informations> {
@@ -17,10 +19,26 @@ export class InformationService {
   }
 
   getAllInformations(): Observable<Informations[]> {
-    return this.http.get<Informations[]>(this.env.getAllInformationsUrl)
+    return this.http.get<Informations[]>(this.env.getAllInformationsUrl).pipe(
+      retry(1),
+      catchError(this.handleError)
+  );
   }
 
   deleteInformation(info: Informations): Observable<Informations> {
 return this.http.post<Informations>(this.env.deleteInformationsUrl, info)
   }
+
+  handleError(error) {
+    let errorMessage;
+    if (error instanceof HttpResponse) {
+        // client-side error
+        errorMessage = `Error: ${error.status}`;
+    } else {
+        // server-side error
+        errorMessage =  error.status;
+    }
+    sessionStorage.setItem('errorHttp', errorMessage);
+    return throwError(errorMessage);
+}
 }
