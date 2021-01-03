@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Informations } from '../../models/informations.interface';
 
@@ -16,7 +17,7 @@ export class AddInformationComponent implements OnInit {
 
   constructor(private informationsServiceFormulaire: InformationFormulaireService,
     private informationsService: InformationService,
-    private router: Router) { }
+    private router: Router, private _snackBar: MatSnackBar) { }
 informationsForm: FormGroup;
 informations: Informations[];
 
@@ -25,7 +26,6 @@ informations: Informations[];
    let token = sessionStorage.getItem('userConnectRNCO');
    if (!token) {
      this.router.navigate(['/login'])
-     
    }
   }
 
@@ -37,6 +37,14 @@ informations: Informations[];
         this.informations = data;
       }
     )
+    this.openSnackBar('Information enregistré !', '')
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+      panelClass: ['warning']
+    });
   }
 
 }

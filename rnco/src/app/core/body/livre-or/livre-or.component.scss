@@ -4,7 +4,6 @@ form{
 }
 
 mat-form-field{
-  padding: 20px;
 }
 
 span{
@@ -14,6 +13,16 @@ span{
   padding: 10px;
 }
 
+button{
+  min-width: 120px;
+}
+
+button:disabled{
+  cursor: not-allowed;
+  opacity: 0.5;
+  border: red;
+}
+
 a {
   cursor: pointer;
   margin-left: 5px;
@@ -21,8 +30,8 @@ a {
 }
 
 .pagination{
-  margin-top: 112px;
-  position: absolute;
+  margin-top: 80px;
+padding: 25px;
 }
 
 ::before,
@@ -741,4 +750,8 @@ figcaption p {
     left: -80px;
     font-size: 90%;
   }
+}
+
+::ng-deep .warning{
+  min-width: 400px !important;
 }

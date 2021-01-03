@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -9,13 +9,14 @@ import { Comments } from '../../models/comment.interface';
 /** services */
 import { CommentService } from '../../services/comment.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-validation',
   templateUrl: './blog-validation.component.html',
   styleUrls: ['./blog-validation.component.scss']
 })
-export class BlogValidationComponent implements OnInit, AfterViewInit {
+export class BlogValidationComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(  private commentService: CommentService, private location: Location, 
     private router: Router) { }
@@ -25,6 +26,7 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Comments>();
   @ViewChild(MatSort) sort: MatSort;
   status: string;
+  commentSubscription: Subscription;
 
   ngOnInit(): void {
     this. initializeComments();
@@ -39,8 +41,12 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  ngOnDestroy() {
+    this.commentSubscription.unsubscribe()
+  }
+
   initializeComments() {
-    this.commentService.getAllComments().subscribe(
+  this.commentSubscription =  this.commentService.getAllComments().subscribe(
       (data: any) => {
         this.comments = data.comment;
         this.dataSource.data = this.comments;
@@ -81,11 +87,7 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
       (data: any) => 
       this.comments = data.comment
     );
-    this.commentService.getAllComments().subscribe(
-      (data: any) => {
-        this.comments = data.comment;
-      })
-      this.pageRefresh()
+   this.initializeComments();
   }
 
   updateCommentStatutOfFalse(comment: Comments) {
@@ -100,11 +102,7 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
       (data: any) => 
       this.comments = data.comment
     )
-    this.commentService.getAllComments().subscribe(
-      (data: any) => {
-        this.comments = data.comment;
-      })
-      this.pageRefresh()
+    this.initializeComments();
   }
 
   deteComment(comment: Comments) {
@@ -113,7 +111,7 @@ export class BlogValidationComponent implements OnInit, AfterViewInit {
       (data: any) => 
       this.comments = data.comment
     ) 
-    this.pageRefresh();
+    this.initializeComments();
   }
 
   pageRefresh() {

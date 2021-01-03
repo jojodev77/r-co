@@ -50,3 +50,11 @@ button{
     font-family: 'titre1';
     src: url("/assets/rb.otf") format("truetype");
 }
+
+cdk-overlay-container{
+    min-width: 250px;
+}
+
+::ng-deep .warning{
+    min-width: 400px !important;
+ }

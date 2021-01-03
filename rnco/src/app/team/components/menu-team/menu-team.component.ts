@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { Router } from '@angular/router';
 
 /** rxjs */
 import { Subscription } from 'rxjs';
@@ -18,7 +19,8 @@ import { TeamService } from '../../services/team.service';
 export class MenuTeamComponent implements OnInit {
 
   isConnectSubscription: Subscription;
-  constructor( private teamService: TeamService) { }
+  constructor( private teamService: TeamService, private router: Router) { 
+  }
   userInformation: UserInformations;
 
   ngOnInit(): void {
@@ -26,6 +28,17 @@ export class MenuTeamComponent implements OnInit {
       (data: UserInformations) => {
       }
     )
+    let token = sessionStorage.getItem('userConnectRNCO');
+   if (!token) {
+     this.router.navigate(['/login'])
+   }
+
+   setTimeout(() => {
+    let token = sessionStorage.getItem('userConnectRNCO');
+    if (!token) {
+      this.router.navigate(['/login'])
+    }
+   }, 50000);
   }
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {

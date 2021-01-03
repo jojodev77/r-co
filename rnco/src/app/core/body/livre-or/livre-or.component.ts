@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 
 /** models */
 import { Comments } from 'src/app/team/models/comment.interface';
@@ -16,7 +17,7 @@ import { PagerService } from '../services/pagination-service';
   templateUrl: './livre-or.component.html',
   styleUrls: ['./livre-or.component.scss']
 })
-export class LivreOrComponent implements OnInit {
+export class LivreOrComponent implements OnInit, OnDestroy {
 
   constructor(
     private blogFormulaireService: BlogFormulaireService,
@@ -30,17 +31,25 @@ export class LivreOrComponent implements OnInit {
   numberOfCommentsArray: number[] = [];
       pager: any = {};
       pagedItems: any[];
+      commentSubscription: Subscription;
 
   ngOnInit(): void {
   this.blogForm =  this.blogFormulaireService.buildForm();
-  this.commentService.getAllCommentsByValidate().subscribe(
-    (data: any) => {
-      console.log(data)
-      this.comments = data.comments;
-      this.setPage(1);
-    }
-  )
- 
+  this.initializeComment(); 
+  }
+
+  ngOnDestroy() {
+    this.commentSubscription.unsubscribe();
+  }
+
+  initializeComment() {
+ this.commentSubscription =   this.commentService.getAllCommentsByValidate().subscribe(
+      (data: any) => {
+        console.log(data)
+        this.comments = data.comments;
+        this.setPage(1);
+      }
+    )
   }
 
   createComments() {
@@ -50,10 +59,7 @@ export class LivreOrComponent implements OnInit {
       validate: false,
       date: new Date().toString()
     } as Comments;
-    this.commentService.createComments(comments).subscribe(
-      (data: Comments) => {
-      }
-    )
+   this.initializeComment();
     this.openSnackBar('Commentaires ajouté !', 'Il sera visible aprés validation')
   }
 
@@ -97,6 +103,7 @@ export class LivreOrComponent implements OnInit {
 openSnackBar(message: string, action: string) {
   this._snackBar.open(message, action, {
     duration: 3000,
+    panelClass: ['warning']
   });
 }
 }

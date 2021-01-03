@@ -1,3 +1,7 @@
 .addInformation{
     width: 600px;
 }
+
+::ng-deep .warning{
+    min-width: 300px !important;
+ }

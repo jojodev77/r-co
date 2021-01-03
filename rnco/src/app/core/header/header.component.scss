@@ -101,3 +101,23 @@ background: linear-gradient(90deg, rgba(18,221,126,1) 0%, rgba(2,0,36,1) 0%, rgb
      
       margin: 0 0 16px !important;
   }
+
+  @media (max-width: 900px) {
+    .logo {
+      max-width: 250px;
+      max-height: 200px;
+      padding: 10px;
+      border-radius: 10%;
+      margin-top: 60px;
+      cursor: pointer;
+      margin-left: -78px;
+  }
+  mat-nav-list{
+    text-justify: inter-word;
+  }
+
+  h2 {
+    font-family: "titre1";
+    text-align: center;
+}
+  }

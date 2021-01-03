@@ -26,25 +26,29 @@
               </div>
           <a (click)="scrollTo('.livre')" mat-button>LIVRE D'OR <mat-icon> border_color</mat-icon></a>
           <a (click)="scrollTo('.faq')" mat-button>FAQ <mat-icon>thumb_up_alt</mat-icon></a>
-          <div class="dropdown">
+          <a routerLink="collaborateurs" mat-button>COLLABORATEURS <mat-icon>meeting_room</mat-icon></a>
+          <!-- <div class="dropdown">
             <a  mat-button>PRO <mat-icon>keyboard_arrow_down</mat-icon></a>
             <div class="dropdown-child">
               <a routerLink="collaborateurs" mat-button>COLLABORATEURS <mat-icon>meeting_room</mat-icon></a>
-            </div>
-            </div>
+            </div> -->
+            <!-- </div> -->
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
   
     <mat-sidenav-container fxFlexFill>
       <mat-sidenav #sidenav>
-        <mat-nav-list>
+        <mat-nav-list fxLayout="column">
           <a (click)="sidenav.toggle()" href="" mat-list-item>Fermer</a>
-          <a (click)="scrollTo('.produits')" mat-button>PRODUITS ET SERVICES <mat-icon>wb_incandescent</mat-icon></a>
-          <a (click)="scrollTo('.confort')" mat-button>CONFORT ET ECONOMIE <mat-icon>wb_incandescent</mat-icon></a>
+          <a (click)="scrollTo('.produits')"mat-button>FONCTIONNEMENT ? <mat-icon>settings</mat-icon></a>
+          <a (click)="scrollTo('.etape')"mat-button>LES ETAPES ? <mat-icon>today</mat-icon></a>
           <a (click)="scrollTo('.identite')" mat-button>QUI SOMMES NOUS ? <mat-icon>person</mat-icon></a>
-          <a (click)="scrollTo('.agrement')" mat-button>POURQUOI NOUS FAIRE CONFIANCE ? <mat-icon>star</mat-icon></a>
-          <a (click)="scrollTo('.contact')" mat-button>PRENDRE CONTACT <mat-icon> email</mat-icon></a>
+          <a (click)="scrollTo('.recommandations')" mat-button>NOS RECOMMANDATIONS ? <mat-icon>how_to_reg</mat-icon></a>
+          <a (click)="scrollTo('.partenaires')" mat-button>NOS PARTENAIRES ? <mat-icon>person</mat-icon></a>
+          <a (click)="scrollTo('.livre')" mat-button>LIVRE D'OR <mat-icon> border_color</mat-icon></a>
+          <a (click)="scrollTo('.faq')" mat-button>FAQ <mat-icon>thumb_up_alt</mat-icon></a>
+          <a routerLink="collaborateurs" mat-button>COLLABORATEURS <mat-icon>meeting_room</mat-icon></a>
           <a (click)="sidenav.toggle()" href="" mat-list-item>Fermer</a>
         </mat-nav-list>
       </mat-sidenav>
@@ -54,9 +58,13 @@
 
            
             </section>
+            
             <h2 class="title">Le specialiste des energies renouvellables depuis 2008</h2>
-            <h2><mat-icon> call</mat-icon>:<a>01-01-01-01-01</a ><a href="mailto:email@example.com"> Demande d'informations<mat-icon>alternate_email</mat-icon></a></h2>
+            <section fxLayout="row" fxLayout.lt-md="column">
+            <h2><a>01-01-01-01-01</a ></h2>
+            <h2><a href="mailto:email@example.com"> Demande d'informations</a></h2>
           </section>
+        </section>
           <section class="module">
             <h1 fxLayoutAlign="center center" >POURQUOI NOUS FAIRE CONFIANCE ?</h1>
           </section>
