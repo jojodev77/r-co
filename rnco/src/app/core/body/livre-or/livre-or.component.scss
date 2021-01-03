@@ -755,3 +755,13 @@ figcaption p {
 ::ng-deep .warning{
   min-width: 400px !important;
 }
+
+@media (max-width: 950px) {
+  .align > li {
+    width: 100%;
+    min-height: 440px;
+    height: auto;
+    padding: 0;
+    margin: -27px 26px 30px -111px;
+}
+}
