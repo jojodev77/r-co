@@ -1,5 +1,6 @@
 <section>
-    <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabChanged($event)">
+  <span fxLayout="row" fxLayoutAlign="center center">{{name}}</span>
+    <mat-tab-group mat-align-tabs="center">
         <mat-tab label="INFORMATIONS-EQUIPE"><app-team-information></app-team-information></mat-tab>
         <mat-tab label="CREATION D'INFORMATIONS"><app-add-information></app-add-information></mat-tab>
         <mat-tab label="OUTIL">Content 2</mat-tab>

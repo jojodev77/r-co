@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -9,37 +9,53 @@ import { UserInformations } from '../../models/user_informations.interface';
 import { TeamService } from '../../services/team.service';
 import { TeamFormulaireService } from '../../services/team-formulaire.service';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gestion-team',
   templateUrl: './gestion-team.component.html',
   styleUrls: ['./gestion-team.component.scss']
 })
-export class GestionTeamComponent implements OnInit, AfterViewInit {
+export class GestionTeamComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private teamService: TeamService,
-    private teamFormulaireService: TeamFormulaireService
-    ) { }
+    private teamFormulaireService: TeamFormulaireService,
+    private router: Router
+  ) { }
 
   teams: UserInformations[];
   displayedColumns: string[] = ['name', 'roles', 'email', 'password', 'status'];
   dataSource = new MatTableDataSource<UserInformations>();
   @ViewChild(MatSort) sort: MatSort;
   createTeamsForm: FormGroup;
+  teamSubscription: Subscription;
 
   ngOnInit(): void {
-    this.teamService.getAllUser().subscribe(
-      (data: any) => {
-        this.teams = data.user;
-        this.dataSource.data = this.teams;
-      }
-    )
+    this.initialValueTeam();
     this.createTeamsForm = this.teamFormulaireService.buildForm();
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+  }
+
+  ngOnDestroy() {
+    this.teamSubscription.unsubscribe()
+  }
+
+  initialValueTeam() {
+    this.teamSubscription = this.teamService.getAllUser().subscribe(
+      (data: any) => {
+        this.teams = data.user;
+        this.dataSource.data = this.teams;
+      }
+    ), (err) => {
+      if (err.status === 401) {
+        this.router.navigateByUrl('/login');
+      }
+    }
   }
 
   applyFilter(event: Event) {
@@ -56,12 +72,8 @@ export class GestionTeamComponent implements OnInit, AfterViewInit {
       status: true,
       roles: this.createTeamsForm.get('createRoles').value
     } as UserInformations;
-console.log(newUserTeam)
-    this.teamService.createUser(newUserTeam).subscribe(
-      (data: UserInformations) => {
-        console.log(data)
-      }
-    );
+    this.teamService.createUser(newUserTeam)
+    this.initialValueTeam();
   }
 
 }

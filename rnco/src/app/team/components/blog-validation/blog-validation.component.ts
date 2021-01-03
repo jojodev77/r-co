@@ -55,7 +55,10 @@ export class BlogValidationComponent implements OnInit, AfterViewInit, OnDestroy
           this.statusOfComments(this.comments[index].validate)
         }
       }
-    )
+    ), (err) => {
+      if (err.status === 401) { this.router.navigateByUrl('/login');
+  }
+}
   }
 
   statusOfComments(comments: boolean) {

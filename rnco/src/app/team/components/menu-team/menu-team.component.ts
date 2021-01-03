@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 
@@ -16,33 +16,41 @@ import { TeamService } from '../../services/team.service';
   templateUrl: './menu-team.component.html',
   styleUrls: ['./menu-team.component.scss']
 })
-export class MenuTeamComponent implements OnInit {
+export class MenuTeamComponent implements OnInit, OnDestroy {
 
   isConnectSubscription: Subscription;
   constructor( private teamService: TeamService, private router: Router) { 
   }
   userInformation: UserInformations;
+  name: string;
 
   ngOnInit(): void {
     this.isConnectSubscription = this.teamService.setUserConnect.subscribe(
       (data: UserInformations) => {
       }
-    )
+    ), (err) => {
+      if (err.status === 401) { this.router.navigateByUrl('/login');
+  }
+}
     let token = sessionStorage.getItem('userConnectRNCO');
    if (!token) {
      this.router.navigate(['/login'])
    }
 
    setTimeout(() => {
-    let token = sessionStorage.getItem('userConnectRNCO');
-    if (!token) {
-      this.router.navigate(['/login'])
-    }
+    this.isConnectSubscription = this.teamService.setUserConnect.subscribe(
+      (data: UserInformations) => {
+      }
+    ), (err) => {
+      if (err.status === 401) { this.router.navigateByUrl('/login');
+  }
+}
    }, 50000);
+
+this.name = sessionStorage.getItem('name');
   }
 
-  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
-    console.log(tabChangeEvent.tab.textLabel);
-}
-
+  ngOnDestroy() {
+    this.isConnectSubscription.unsubscribe()
+  }
 }

@@ -12,6 +12,7 @@ import { TeamService } from '../../services/team.service';
 
 import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private teamFormulaireService: TeamFormulaireService,
     private teamService: TeamService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar) { }
 
   teamForm: FormGroup;
   login: Login;
@@ -48,17 +50,23 @@ export class LoginComponent implements OnInit {
         (data: UserInformations) => {
           this.userInformation = data;
           sessionStorage.setItem('userConnectRNCO', this.userInformation.jwtToken);
-        
+          sessionStorage.setItem('name', this.userInformation.firstName);
           this.teamService.setUserConnect.next(this.userInformation)
-
           this.isConnectSubscription = this.teamService.setUserConnect.subscribe(
             (data: UserInformations) => {
               
             }
-          )
+          ), (err) => {
+            if (err.status === 401) {
+              this.openSnackBar('Session expiré', '')
+              this.router.navigateByUrl('/login');
+            }
+          }
           if (this.userInformation) {
+            this.openSnackBar('Bonjour', '')
             this.router.navigate(['collaborateurs/menu_collaborateurs'])
           } else {
+            this.openSnackBar('Nom et/ou mdp incorrect', '')
             this.router.navigate(['/'])
           }
         }
@@ -70,5 +78,13 @@ export class LoginComponent implements OnInit {
   passwordForget() {
 
   }
+
+  
+openSnackBar(message: string, action: string) {
+  this._snackBar.open(message, action, {
+    duration: 3000,
+    panelClass: ['warning']
+  });
+}
 
 }
