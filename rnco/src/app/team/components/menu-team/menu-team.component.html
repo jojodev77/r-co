@@ -1,5 +1,9 @@
 <section>
-  <span fxLayout="row" fxLayoutAlign="center center">Bonjour {{name}}</span>
+  <section fxLayout="row">
+    <span fxLayout="row" fxLayoutAlign="center center">Bonjour {{name}}</span>
+    <button (click)="disconnect()">DECONNEXION</button>
+  </section>
+ 
     <mat-tab-group mat-align-tabs="center">
         <mat-tab label="INFORMATIONS-EQUIPE"><app-team-information></app-team-information></mat-tab>
         <mat-tab label="CREATION D'INFORMATIONS"><app-add-information></app-add-information></mat-tab>

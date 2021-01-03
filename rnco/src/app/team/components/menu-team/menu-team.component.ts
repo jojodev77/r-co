@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 
@@ -16,7 +16,7 @@ import { TeamService } from '../../services/team.service';
   templateUrl: './menu-team.component.html',
   styleUrls: ['./menu-team.component.scss']
 })
-export class MenuTeamComponent implements OnInit, OnDestroy {
+export class MenuTeamComponent implements OnInit, AfterViewInit, OnDestroy {
 
   isConnectSubscription: Subscription;
   constructor( private teamService: TeamService, private router: Router) { 
@@ -34,7 +34,7 @@ export class MenuTeamComponent implements OnInit, OnDestroy {
 }
     let token = sessionStorage.getItem('userConnectRNCO');
    if (!token) {
-     this.router.navigate(['/login'])
+     this.router.navigate(['/collaborateurs'])
    }
 
    setTimeout(() => {
@@ -42,7 +42,7 @@ export class MenuTeamComponent implements OnInit, OnDestroy {
       (data: UserInformations) => {
       }
     ), (err) => {
-      if (err.status == 401) { this.router.navigateByUrl('/login');
+      if (err.status == 401) { this.router.navigate(['/collaborateurs']);
   }
 }
    }, 50000);
@@ -50,7 +50,21 @@ export class MenuTeamComponent implements OnInit, OnDestroy {
 this.name = sessionStorage.getItem('name');
   }
 
+  ngAfterViewInit() {
+    let token = sessionStorage.getItem('userConnectRNCO');
+    if (!token) {
+      this.router.navigate(['/collaborateurs'])
+    }
+ 
+  }
+
   ngOnDestroy() {
     this.isConnectSubscription.unsubscribe()
+  }
+
+  disconnect() {
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('userConnectRNCO');
+    this.router.navigate(['/collaborateurs'])
   }
 }
