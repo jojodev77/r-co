@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   teamForm: FormGroup;
   login: Login;
-  userInformation: UserInformations;
+  userInformation: any;
   isConnectSubscription: Subscription;
 
   ngOnInit(): void {
@@ -47,10 +47,11 @@ export class LoginComponent implements OnInit {
     } as Login;
     if (this.login) {
       this.teamService.connexion(this.login).subscribe(
-        (data: UserInformations) => {
+        (data: any) => {
           this.userInformation = data;
+          console.log(this.userInformation)
           sessionStorage.setItem('userConnectRNCO', this.userInformation.jwtToken);
-          sessionStorage.setItem('name', this.userInformation.firstName);
+          sessionStorage.setItem('name', this.userInformation.user.firstName);
           this.teamService.setUserConnect.next(this.userInformation)
           this.isConnectSubscription = this.teamService.setUserConnect.subscribe(
             (data: UserInformations) => {

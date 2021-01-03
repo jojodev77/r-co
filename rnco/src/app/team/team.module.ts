@@ -23,12 +23,14 @@ import { BlogService } from './services/blog.service';
 import { CommentService } from './services/comment.service';
 import { InformationFormulaireService } from './services/information-formulaire.service';
 import { InformationService } from './services/information.service';
+import { FicheClientComponent } from './outil/component/fiche-client/fiche-client.component';
+import { OutilComponent } from './outil/component/outil/outil.component';
 
 
 
 
 @NgModule({
-  declarations: [BlogValidationComponent, LoginComponent, AddInformationComponent, TeamInformationComponent, GestionTeamComponent, HomeTeamComponent, MenuTeamComponent],
+  declarations: [BlogValidationComponent, LoginComponent, AddInformationComponent, TeamInformationComponent, GestionTeamComponent, HomeTeamComponent, MenuTeamComponent, FicheClientComponent, OutilComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -42,6 +44,7 @@ import { InformationService } from './services/information.service';
     InformationFormulaireService,
     InformationService
   ],
+  entryComponents: [FicheClientComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TeamModule { }

@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
     
   ],
   exports: [
@@ -67,7 +69,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

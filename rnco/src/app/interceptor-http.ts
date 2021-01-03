@@ -1,5 +1,6 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { UserInformations } from './team/models/user_informations.interface';
@@ -8,7 +9,7 @@ import { TeamService } from './team/services/team.service';
 
 @Injectable()
 export class  HttpConfigInterceptor implements HttpInterceptor {
-  constructor( private teamService: TeamService) {}
+  constructor( private teamService: TeamService, private router: Router) {}
   userInformation: UserInformations;
   token:string;
   tokenSubscription:Subscription;
@@ -30,6 +31,12 @@ export class  HttpConfigInterceptor implements HttpInterceptor {
         map((event: HttpEvent<any>) => {
             if (event instanceof HttpResponse) {
                 console.log('event--->>>', event);
+                if (event.status === 401) {
+                    this.router.navigate(['/'])
+                }
+                if (event.status === 503) {
+                    this.router.navigate(['/'])
+                }
             }
             return event;
         }));

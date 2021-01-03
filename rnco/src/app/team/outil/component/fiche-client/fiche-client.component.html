@@ -1,0 +1,116 @@
+<section fxLayout="column" fxLayoutAlign="center center" class="fiche_client">
+    <h1> FICHE CLIENT</h1>
+<form [formGroup]="fiche_client_form">
+
+    <h2>CLIENT</h2>
+
+    <section fxLayout="row">
+        <mat-form-field class="example-form-field">
+            <mat-label>Nom client</mat-label>
+            <input matInput type="text" formControlName="nom">
+            <button mat-button *ngIf="fiche_client_form.get('nom').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field">
+            <mat-label>Prénom client</mat-label>
+            <input matInput type="text" formControlName="prenom">
+            <button mat-button *ngIf="fiche_client_form.get('prenom').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </section>
+
+    <mat-form-field class="example-form-field">
+        <mat-label>adresse client</mat-label>
+        <input matInput type="text" formControlName="adresse">
+        <button mat-button *ngIf="fiche_client_form.get('adresse').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <section fxLayout="row">
+        <mat-form-field class="example-form-field">
+            <mat-label>telephone</mat-label>
+            <input matInput type="text" formControlName="telephone">
+            <button mat-button *ngIf="fiche_client_form.get('telephone').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email">
+            <button mat-button *ngIf="fiche_client_form.get('email').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </section>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Status actuel</mat-label>
+        <mat-select formControlName="status">
+          <mat-option  [value]="'contact'">PRISE DE CONTACT</mat-option>
+          <mat-option  [value]="'bilan'">BILAN ENERGITIQUE</mat-option>
+          <mat-option  [value]="'vente'">VENTE</mat-option>
+          <mat-option  [value]="'installation'">INSTALLATION</mat-option>
+          <mat-option  [value]="'sav'">SAV</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+
+
+      <h2>LOGEMENT</h2>
+
+      <section fxLayout="row">
+        <mat-form-field class="example-form-field">
+            <mat-label>Surface du logement</mat-label>
+            <input matInput type="text" formControlName="surfaceLogement">
+            <button mat-button *ngIf="fiche_client_form.get('surfaceLogement').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Type de chauffage</mat-label>
+            <mat-select formControlName="typeChauffage" multiple>
+              <mat-option  [value]="'electricite'">ELECTRICITE</mat-option>
+              <mat-option  [value]="'gaz'">GAZ</mat-option>
+              <mat-option  [value]="'pap'">Pompes à chaleur</mat-option>
+              <mat-option  [value]="'pab'">Poele a bois</mat-option>
+              <mat-option  [value]="'pag'">Poele a granule</mat-option>
+              <mat-option  [value]="'solaire'">Solaire</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </section>
+
+        <mat-form-field class="example-form-field">
+            <mat-label>Informations complémentaires</mat-label>
+            <input matInput type="text" formControlName="informationsComplementaire">
+            <button mat-button *ngIf="fiche_client_form.get('informationsComplementaire').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <h2> BILAN</h2>
+
+        <mat-form-field class="example-form-field">
+            <mat-label>Le ressenti du rendez vous</mat-label>
+            <input matInput type="text" formControlName="ineteressement">
+            <button mat-button *ngIf="fiche_client_form.get('ineteressement').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field">
+            <mat-label>Date de rendez vous</mat-label>
+            <input matInput type="text" formControlName="rdv">
+            <button mat-button *ngIf="fiche_client_form.get('rdv').value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+
+</form>
+</section>
