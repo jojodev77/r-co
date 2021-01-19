@@ -46,14 +46,6 @@ export class AccueilComponent implements OnInit {
   }
 
  calculSimulateur() {
-//    this.simulateurSubscription = this.simulateurForm.get('sommePayerMensuellement').valueChanges.subscribe(
-//   (data: any) => {
-//     console.log(data)
-//     this.coutAnnuelEnergitique = data * 12;
-//     this.coutPacAirAir = data / 4;
-//     this.coutPacAirEau = data / 3;
-//   }
-// )
 alert(this.simulateurForm.get('sommePayerMensuellement').value)
  }
 }

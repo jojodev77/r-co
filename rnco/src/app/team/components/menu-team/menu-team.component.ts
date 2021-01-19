@@ -48,6 +48,10 @@ export class MenuTeamComponent implements OnInit, AfterViewInit, OnDestroy {
    }, 50000);
 
 this.name = sessionStorage.getItem('name');
+let errorMsg = (+sessionStorage.getItem('errorHttp'));
+    if (errorMsg === 401) {
+      this.router.navigate(['./collaborateurs'])
+    }
   }
 
   ngAfterViewInit() {

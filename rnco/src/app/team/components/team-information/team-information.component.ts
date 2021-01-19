@@ -45,7 +45,6 @@ roles: string;
 
   initialInformation() {
     let errorMsg = (+sessionStorage.getItem('errorHttp'));
-    console.log(errorMsg)
     if (errorMsg === 401) {
       this.router.navigate(['./collaborateurs'])
     }
@@ -65,7 +64,7 @@ roles: string;
     if (information) {
       this.informationsService.deleteInformation(information).subscribe(
         (data: any) => {
-          console.log(data)
+
         }
       );
       this.initialInformation();

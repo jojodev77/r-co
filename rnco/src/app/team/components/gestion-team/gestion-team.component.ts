@@ -56,6 +56,10 @@ export class GestionTeamComponent implements OnInit, AfterViewInit, OnDestroy {
         this.router.navigateByUrl('/login');
       }
     }
+    let errorMsg = (+sessionStorage.getItem('errorHttp'));
+    if (errorMsg === 401) {
+      this.router.navigate(['./collaborateurs'])
+    }
   }
 
   applyFilter(event: Event) {
@@ -82,9 +86,8 @@ export class GestionTeamComponent implements OnInit, AfterViewInit, OnDestroy {
 
   deleteUser(user: UserInformations) {
     if (user) {
-      console.log(user)
       this.teamService.deleteUser(user).subscribe(
-        (data: any) => {console.log(data)}
+        (data: any) => {}
       );
       this. initialValueTeam()
       this.router.navigate(['./collaborateurs/menu_collaborateurs'])

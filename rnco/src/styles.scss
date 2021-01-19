@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-html, body { height: 100%; }
+html, body { height: 100%;font-family: arial; }
 body { margin: 0; font-family: arial;
     
 }
@@ -66,3 +66,12 @@ cdk-overlay-container{
 ::ng-deep .warning{
     min-width: 400px !important;
  }
+
+ .mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+    text-align: center;
+}

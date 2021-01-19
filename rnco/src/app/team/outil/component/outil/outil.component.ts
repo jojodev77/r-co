@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { FicheClientComponent } from '../fiche-client/fiche-client.component';
 
 @Component({
@@ -9,9 +10,13 @@ import { FicheClientComponent } from '../fiche-client/fiche-client.component';
 })
 export class OutilComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
+    let errorMsg = (+sessionStorage.getItem('errorHttp'));
+    if (errorMsg === 401) {
+      this.router.navigate(['./collaborateurs'])
+    }
   }
 
   openDialogFicheClient() {

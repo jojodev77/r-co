@@ -31,7 +31,6 @@ informations: Informations[];
 
   createInformations() {
     let result = this.informationsForm.getRawValue();
-    console.log(result)
     this.informationsService.createInformations(result).subscribe(
       (data: any) => {
         this.informations = data;

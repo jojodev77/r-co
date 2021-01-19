@@ -59,6 +59,10 @@ export class BlogValidationComponent implements OnInit, AfterViewInit, OnDestroy
       if (err.status == 401) { this.router.navigateByUrl('/login');
   }
 }
+let errorMsg = (+sessionStorage.getItem('errorHttp'));
+    if (errorMsg === 401) {
+      this.router.navigate(['./collaborateurs'])
+    }
   }
 
   statusOfComments(comments: boolean) {
@@ -109,7 +113,6 @@ export class BlogValidationComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   deteComment(comment: Comments) {
-    console.log(comment)
     this.commentService.deleteById(comment).subscribe(
       (data: any) => 
       this.comments = data.comment

@@ -45,7 +45,6 @@ export class LivreOrComponent implements OnInit, OnDestroy {
   initializeComment() {
  this.commentSubscription =   this.commentService.getAllCommentsByValidate().subscribe(
       (data: any) => {
-        console.log(data)
         this.comments = data.comments;
         this.setPage(1);
       }
@@ -63,14 +62,6 @@ export class LivreOrComponent implements OnInit, OnDestroy {
     this.openSnackBar('Commentaires ajouté !', 'Il sera visible aprés validation')
   }
 
-  // managementOfPaginate() {
-  //   for (let index = 0; index < this.comments.length; index++) {
-  //     this.numberOfCommentsArray.push(index);
-  //     console.log(index)
-  //   }
-  //   return this.numberOfCommentsArray;
-
-  // }
 
   setPage(page: number) {
     if (page) {
@@ -83,7 +74,6 @@ export class LivreOrComponent implements OnInit, OnDestroy {
     // get pager object from service
     if (this.comments) {
       if (page) {
-        console.log(this.comments)
       this.pager = this.pagerService.getPager(this.comments.length, page);
       }
       

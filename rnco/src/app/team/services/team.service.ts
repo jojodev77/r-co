@@ -38,7 +38,6 @@ export class TeamService {
     let requestParams = new HttpParams();
     requestParams = requestParams.append("email", login.email);
    // requestParams = requestParams.append("password", login.password);
-    console.log(login)
     return this.http.post<UserInformations>(this.env.getUserConnexionUrl, login)
   }
 
